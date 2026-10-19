@@ -1,0 +1,419 @@
+{
+  "interval": {
+    "start_utc": "2026-09-01T00:00:00+00:00",
+    "end_utc_exclusive": "2026-09-02T00:00:00+00:00"
+  },
+  "sources": {
+    "bybit_book": {
+      "file": "2026-09-01_BTCUSDT_ob200.data.zip",
+      "bytes": 180929446,
+      "sha256": "6fdc870a8b66a32fd44c245ddec06850f933233ea0ad0feee585b89d07907f6e"
+    },
+    "bybit_trades": {
+      "file": "BTCUSDT2026-09-01.csv.gz",
+      "bytes": 70145746,
+      "sha256": "a321d10bffc3f6130c2e76609d58988dafa3898538f18fcabf7567891f00296e"
+    },
+    "okx_book": {
+      "file": "BTC-USDT-SWAP-L2orderbook-400lv-2026-09-01.tar.gz",
+      "bytes": 378586403,
+      "sha256": "0578d114ceee62b2997c1a8b1b52a63fc046ab3a7235c74ffe5c3b26d0f41b80"
+    },
+    "okx_trades_01": {
+      "file": "BTC-USDT-SWAP-trades-2026-09-01.zip",
+      "bytes": 13953306,
+      "sha256": "e6db29a31cffa752550c5a9dc2b33974caeeefe284847036d25be2d3a00d681c"
+    },
+    "okx_trades_02": {
+      "file": "BTC-USDT-SWAP-trades-2026-09-02.zip",
+      "bytes": 16918785,
+      "sha256": "ea361b4b909ae3f170c16c66eaf7ce1277d965c0246365130525b8311e9cbf5e"
+    }
+  },
+  "script_sha256": "08161286d5969d3a1363995b6393ed501b18448a0728646d352a8973e6b2bd09",
+  "self_tests": [
+    "strict-past equal-time snapshot and stale rejection",
+    "multi-level depth VWAP and insufficient depth",
+    "pre-activation and wrong-price exclusion, displayed queue depletion, partial fill and TTL",
+    "funding-boundary exclusion and end-of-day closure guard",
+    "synthetic maker fill, delayed hedge, 60s liquidation and all four fees",
+    "synthetic partial maker fill flattened without fractional OKX hedge",
+    "synthetic quote crossing at activation rejected post-only"
+  ],
+  "full_archives_streamed": true,
+  "bybit_book": {
+    "snapshots": 2,
+    "records": 863932
+  },
+  "okx_book": {
+    "snapshots": 96,
+    "records": 5858458
+  },
+  "bybit_trades": {
+    "all_rows": 2017359,
+    "eligible_rows": 2017359
+  },
+  "okx_trades_audit": {
+    "BTC-USDT-SWAP-trades-2026-09-01.zip": 2373050,
+    "in_day_rows": 2660697,
+    "BTC-USDT-SWAP-trades-2026-09-02.zip": 2890141,
+    "first_ms": 1788220800007,
+    "last_ms": 1788307199914,
+    "use": "Full-file audit only; OKX hedge execution uses displayed depth, not trades."
+  },
+  "grid": {
+    "step_ms": 100,
+    "rows_per_venue": 864000,
+    "depth_per_side": 10,
+    "bybit_valid_rows": 863998,
+    "okx_valid_rows": 863999,
+    "rule": "Snapshot at grid t contains only raw book events with timestamp strictly < t; lookup floors to grid; preserve original observation timestamp; reject age >1000ms."
+  },
+  "assumptions": {
+    "quantity_btc": 0.01,
+    "okx_contract_btc": 0.01,
+    "historical_contract_size_verified": false,
+    "okx_contracts_per_full_hedge": 1.0,
+    "bybit_taker_bps": 5.5,
+    "okx_taker_bps": 5.0,
+    "bybit_maker_bps": [
+      2,
+      0
+    ],
+    "historical_account_fees_verified": false,
+    "quote_latency_ms": 100,
+    "hedge_latency_ms": [
+      100,
+      500
+    ],
+    "ttl_ms": [
+      1000,
+      5000
+    ],
+    "paired_hold_after_hedge_ms": 60000,
+    "max_order_btc": 0.01,
+    "max_matched_inventory_btc_per_venue_per_scenario": 0.01,
+    "funding": "No funding cash flows: exclude entries whose worst-case lifetime crosses ANY UTC hour; this over-excludes common native settlement times. Historical funding schedule unverified.",
+    "queue": "At activation join behind max(decision displayed quantity, activation displayed quantity) at exact quoted price. Require activation price visible in top10; reject post-only crosses. Only opposite-side non-RPI trades at exact price strictly after activation and before expiry deplete queue. No cancellation credit or later queue additions. Partial fills retained; sub-contract residual exposure flattened on Bybit at TTL plus latency.",
+    "exit": "60 seconds after full-quantity OKX hedge, simultaneous hypothetical taker liquidation on both venues at depth VWAP. Partial or failed hedges flatten on Bybit. Missing/stale/depth failures explicitly unresolved; never fabricated.",
+    "threshold": "Decision spread must cover all four fees under assumed zero exit basis; this assumption is a trigger, not a forecast or profit guarantee. Taker entry is delayed 100ms on both venues.",
+    "scheduled_probe": "Every 60 seconds from 00:00:10 alternating directions; skip while busy. Independent of alpha or future outcomes. Each sensitivity is a separate counterfactual account, never aggregate their PnL."
+  },
+  "limitations": [
+    "Single day, selected BTC venues, no out-of-sample or profitable-strategy claim.",
+    "Public timestamps are exchange publication/event clocks, not synchronized local receive clocks; no measured network latency.",
+    "100ms grid can omit intervening states; hedge and exit lookups may be up to 100ms coarser than event time. Staleness limit is 1000ms.",
+    "L2 queue and public prints cannot establish actual priority or private fills. Queue depletion, fill completion, and leg execution remain scenarios.",
+    "No market impact, hidden liquidity, exchange rejection, margin, liquidation, transfer, or account constraints modeled; no extra slippage beyond displayed-depth VWAP.",
+    "Archive byte hashes identify inputs, not independent proof of completeness. Existing collectors contain additional validation; this run fails on parse errors and regressions.",
+    "OKX trade files are fully audited but not used to infer hedge fills. Historical .01 BTC contract size must be verified before relying on sizing.",
+    "Any unresolved exposure is excluded from settled PnL and explicitly counted; settled totals alone would be incomplete if unresolved >0."
+  ],
+  "taker_scan": {
+    "valid_directions": 172773,
+    "positive_gross_directions": 84505,
+    "positive_after_entry_fees_directions": 0,
+    "insufficient_depth_directions": 25
+  },
+  "max_net_taker_opportunity": {
+    "decision_ms": 1788266186000,
+    "direction": 1,
+    "bybit_observed_ms": 1788266185933,
+    "okx_observed_ms": 1788266185993,
+    "bybit_entry_vwap": 77823.93,
+    "okx_entry_vwap": 77884.0,
+    "gross_cross_bps": 7.715727773146426,
+    "entry_fee_bps": 10.499807106805672,
+    "net_entry_bps": -2.784079333659246,
+    "quantity_btc": 0.01,
+    "roundtrip_zero_exit_basis_net_bps": -13.284079333659246
+  },
+  "scenarios": {
+    "taker_threshold_100ms": {
+      "attempts": 0,
+      "statuses": {},
+      "closed_pairs": 0,
+      "settled_experiments": 0,
+      "gross_usdt": 0,
+      "fees_usdt": 0,
+      "pnl_usdt": 0,
+      "mean_pnl_usdt": null,
+      "win_fraction": null,
+      "max_unhedged_ms": 0,
+      "unresolved": 0
+    },
+    "maker_threshold_fee2_ttl1000_hedge100": {
+      "attempts": 0,
+      "statuses": {},
+      "closed_pairs": 0,
+      "settled_experiments": 0,
+      "gross_usdt": 0,
+      "fees_usdt": 0,
+      "pnl_usdt": 0,
+      "mean_pnl_usdt": null,
+      "win_fraction": null,
+      "max_unhedged_ms": 0,
+      "unresolved": 0
+    },
+    "maker_scheduled_probe_fee2_ttl1000_hedge100": {
+      "attempts": 1403,
+      "statuses": {
+        "expired_unfilled": 1333,
+        "post_only_reject": 23,
+        "closed_pair": 13,
+        "activation_price_outside_top10": 23,
+        "partial_bybit_unwind": 11
+      },
+      "closed_pairs": 13,
+      "settled_experiments": 24,
+      "gross_usdt": -0.687900000000062,
+      "fees_usdt": 19.457409264999825,
+      "pnl_usdt": -20.145309264999888,
+      "mean_pnl_usdt": -0.839387886041662,
+      "win_fraction": 0.0,
+      "max_unhedged_ms": 1079.5,
+      "unresolved": 0
+    },
+    "maker_threshold_fee2_ttl1000_hedge500": {
+      "attempts": 0,
+      "statuses": {},
+      "closed_pairs": 0,
+      "settled_experiments": 0,
+      "gross_usdt": 0,
+      "fees_usdt": 0,
+      "pnl_usdt": 0,
+      "mean_pnl_usdt": null,
+      "win_fraction": null,
+      "max_unhedged_ms": 0,
+      "unresolved": 0
+    },
+    "maker_scheduled_probe_fee2_ttl1000_hedge500": {
+      "attempts": 1403,
+      "statuses": {
+        "expired_unfilled": 1333,
+        "post_only_reject": 23,
+        "closed_pair": 13,
+        "activation_price_outside_top10": 23,
+        "partial_bybit_unwind": 11
+      },
+      "closed_pairs": 13,
+      "settled_experiments": 24,
+      "gross_usdt": -1.318200000000089,
+      "fees_usdt": 19.457763969999828,
+      "pnl_usdt": -20.775963969999914,
+      "mean_pnl_usdt": -0.865665165416663,
+      "win_fraction": 0.0,
+      "max_unhedged_ms": 1479.5,
+      "unresolved": 0
+    },
+    "maker_threshold_fee2_ttl5000_hedge100": {
+      "attempts": 0,
+      "statuses": {},
+      "closed_pairs": 0,
+      "settled_experiments": 0,
+      "gross_usdt": 0,
+      "fees_usdt": 0,
+      "pnl_usdt": 0,
+      "mean_pnl_usdt": null,
+      "win_fraction": null,
+      "max_unhedged_ms": 0,
+      "unresolved": 0
+    },
+    "maker_scheduled_probe_fee2_ttl5000_hedge100": {
+      "attempts": 1344,
+      "statuses": {
+        "expired_unfilled": 1206,
+        "closed_pair": 75,
+        "partial_bybit_unwind": 18,
+        "post_only_reject": 22,
+        "activation_price_outside_top10": 23
+      },
+      "closed_pairs": 75,
+      "settled_experiments": 93,
+      "gross_usdt": -1.1809000000003342,
+      "fees_usdt": 105.6110228899997,
+      "pnl_usdt": -106.79192289000004,
+      "mean_pnl_usdt": -1.1483002461290326,
+      "win_fraction": 0.0,
+      "max_unhedged_ms": 5079.5,
+      "unresolved": 0
+    },
+    "maker_threshold_fee2_ttl5000_hedge500": {
+      "attempts": 0,
+      "statuses": {},
+      "closed_pairs": 0,
+      "settled_experiments": 0,
+      "gross_usdt": 0,
+      "fees_usdt": 0,
+      "pnl_usdt": 0,
+      "mean_pnl_usdt": null,
+      "win_fraction": null,
+      "max_unhedged_ms": 0,
+      "unresolved": 0
+    },
+    "maker_scheduled_probe_fee2_ttl5000_hedge500": {
+      "attempts": 1344,
+      "statuses": {
+        "expired_unfilled": 1206,
+        "closed_pair": 75,
+        "partial_bybit_unwind": 18,
+        "post_only_reject": 22,
+        "activation_price_outside_top10": 23
+      },
+      "closed_pairs": 75,
+      "settled_experiments": 93,
+      "gross_usdt": -2.766319999999998,
+      "fees_usdt": 105.6114789299997,
+      "pnl_usdt": -108.3777989299997,
+      "mean_pnl_usdt": -1.1653526766666635,
+      "win_fraction": 0.0,
+      "max_unhedged_ms": 5479.5,
+      "unresolved": 0
+    },
+    "maker_threshold_fee0_ttl1000_hedge100": {
+      "attempts": 0,
+      "statuses": {},
+      "closed_pairs": 0,
+      "settled_experiments": 0,
+      "gross_usdt": 0,
+      "fees_usdt": 0,
+      "pnl_usdt": 0,
+      "mean_pnl_usdt": null,
+      "win_fraction": null,
+      "max_unhedged_ms": 0,
+      "unresolved": 0
+    },
+    "maker_scheduled_probe_fee0_ttl1000_hedge100": {
+      "attempts": 1403,
+      "statuses": {
+        "expired_unfilled": 1333,
+        "post_only_reject": 23,
+        "closed_pair": 13,
+        "activation_price_outside_top10": 23,
+        "partial_bybit_unwind": 11
+      },
+      "closed_pairs": 13,
+      "settled_experiments": 24,
+      "gross_usdt": -0.687900000000062,
+      "fees_usdt": 16.96743818499987,
+      "pnl_usdt": -17.655338184999934,
+      "mean_pnl_usdt": -0.7356390910416639,
+      "win_fraction": 0.0,
+      "max_unhedged_ms": 1079.5,
+      "unresolved": 0
+    },
+    "maker_threshold_fee0_ttl1000_hedge500": {
+      "attempts": 0,
+      "statuses": {},
+      "closed_pairs": 0,
+      "settled_experiments": 0,
+      "gross_usdt": 0,
+      "fees_usdt": 0,
+      "pnl_usdt": 0,
+      "mean_pnl_usdt": null,
+      "win_fraction": null,
+      "max_unhedged_ms": 0,
+      "unresolved": 0
+    },
+    "maker_scheduled_probe_fee0_ttl1000_hedge500": {
+      "attempts": 1403,
+      "statuses": {
+        "expired_unfilled": 1333,
+        "post_only_reject": 23,
+        "closed_pair": 13,
+        "activation_price_outside_top10": 23,
+        "partial_bybit_unwind": 11
+      },
+      "closed_pairs": 13,
+      "settled_experiments": 24,
+      "gross_usdt": -1.318200000000089,
+      "fees_usdt": 16.967792889999874,
+      "pnl_usdt": -18.285992889999964,
+      "mean_pnl_usdt": -0.7619163704166652,
+      "win_fraction": 0.0,
+      "max_unhedged_ms": 1479.5,
+      "unresolved": 0
+    },
+    "maker_threshold_fee0_ttl5000_hedge100": {
+      "attempts": 0,
+      "statuses": {},
+      "closed_pairs": 0,
+      "settled_experiments": 0,
+      "gross_usdt": 0,
+      "fees_usdt": 0,
+      "pnl_usdt": 0,
+      "mean_pnl_usdt": null,
+      "win_fraction": null,
+      "max_unhedged_ms": 0,
+      "unresolved": 0
+    },
+    "maker_scheduled_probe_fee0_ttl5000_hedge100": {
+      "attempts": 1344,
+      "statuses": {
+        "expired_unfilled": 1206,
+        "closed_pair": 75,
+        "partial_bybit_unwind": 18,
+        "post_only_reject": 22,
+        "activation_price_outside_top10": 23
+      },
+      "closed_pairs": 75,
+      "settled_experiments": 93,
+      "gross_usdt": -1.1809000000003342,
+      "fees_usdt": 93.02576410999978,
+      "pnl_usdt": -94.20666411000012,
+      "mean_pnl_usdt": -1.012974882903227,
+      "win_fraction": 0.0,
+      "max_unhedged_ms": 5079.5,
+      "unresolved": 0
+    },
+    "maker_threshold_fee0_ttl5000_hedge500": {
+      "attempts": 0,
+      "statuses": {},
+      "closed_pairs": 0,
+      "settled_experiments": 0,
+      "gross_usdt": 0,
+      "fees_usdt": 0,
+      "pnl_usdt": 0,
+      "mean_pnl_usdt": null,
+      "win_fraction": null,
+      "max_unhedged_ms": 0,
+      "unresolved": 0
+    },
+    "maker_scheduled_probe_fee0_ttl5000_hedge500": {
+      "attempts": 1344,
+      "statuses": {
+        "expired_unfilled": 1206,
+        "closed_pair": 75,
+        "partial_bybit_unwind": 18,
+        "post_only_reject": 22,
+        "activation_price_outside_top10": 23
+      },
+      "closed_pairs": 75,
+      "settled_experiments": 93,
+      "gross_usdt": -2.766319999999998,
+      "fees_usdt": 93.02622014999979,
+      "pnl_usdt": -95.79254014999978,
+      "mean_pnl_usdt": -1.0300273134408577,
+      "win_fraction": 0.0,
+      "max_unhedged_ms": 5479.5,
+      "unresolved": 0
+    }
+  },
+  "executions_rows": 10988,
+  "opportunities_rows": 172773,
+  "run_seconds": 309.39,
+  "artifacts": {
+    "executions.csv": {
+      "sha256": "2abad6e1c6f98e1fd10a2b2684845036afca299148aaf7c9bb311df5281e874b",
+      "bytes": 2176156
+    },
+    "opportunities.csv": {
+      "sha256": "ebebd4a1cdeacff5fc77e3eb901d8735cc65c2963f1dd82b9b31851b33083e8a",
+      "bytes": 24850543
+    },
+    "performance.png": {
+      "sha256": "bebc6d08b71b4c187e794a0bb702615435cc4ef55e4165b15cc71fc08fffccd7",
+      "bytes": 325739
+    }
+  }
+}

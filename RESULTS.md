@@ -2,6 +2,10 @@
 
 Funding is reproduced from the included August replay inputs and code. The other tables are extracted from their included result workbooks. Each study has its own sample and assumptions.
 
+## Execution: free Bybit/OKX BTC single-day pilot
+
+[Full execution results](execution/btc-2026-09-01/README.md) use September 1 UTC raw books and trades. No cost-filtered taker or maker entries occur. Scheduled maker probes are execution diagnostics, not alpha: the 2 bps maker-fee, 5 s TTL and 100 ms hedge scenario returns −$106.7919 after all modeled fees, with 75 complete pairs and 18 partial unwinds. All scenarios finish with zero unresolved exposure. [Assumptions](execution/btc-2026-09-01/MODEL.md) include 100 ms sampling, queue/latency scenarios and unverified historical OKX contract sizing.
+
 ## Funding: September shared-data strategy
 
 Source: [results.json](funding/september/results.json), using `crypto-perpetuals-2026-09-v1` unchanged. [Methodology](funding/september/README.md) and [Traditional Chinese explanation](funding/september/README.zh-TW.md).

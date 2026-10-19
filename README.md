@@ -35,7 +35,7 @@ The [September strategy replay](funding/september/README.md) now uses this exact
 
 ## Free execution-data pilot
 
-[Bybit/OKX BTC, September 1 UTC](execution/btc-2026-09-01/README.md) adds freely downloaded price-level books and trades. Both markets cover all 1,440 minutes. Raw archives stay local; reproducible collectors, SHA-256 source hashes and validation reports are public. The OKX archive lacks sequence/checksum fields, and hypothetical maker queue position remains a modeling assumption.
+[Bybit/OKX BTC, September 1 UTC](execution/btc-2026-09-01/README.md) adds freely downloaded price-level books and trades. Both markets cover all 1,440 minutes. Raw archives stay local; reproducible collectors, SHA-256 source hashes and validation reports are public. The [execution replay](execution/btc-2026-09-01/MODEL.md) finds no cost-filtered taker/maker entries. A separately scheduled 0.01 BTC maker probe loses an estimated $106.79 in its 2 bps maker-fee, 5 s TTL, 100 ms hedge scenario. The OKX archive lacks sequence/checksum fields, and hypothetical maker queue position remains a modeling assumption.
 
 ## Results
 
