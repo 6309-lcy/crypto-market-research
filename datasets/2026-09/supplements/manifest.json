@@ -1,0 +1,15 @@
+{
+  "temporal_scope": "CURRENT metadata snapshot; not validated historical September specifications",
+  "files": {
+    "binance_exchange_info.json": "9c12e01dd4326216c7bed00f4d8acd867b9cc8bd0747d121700f0c32070455e1",
+    "bybit_instruments.json": "c0f66d5adc48190e1d90e1088da12277a776bdd14afd69323c0d03714b6cc0f9",
+    "hyperliquid_meta.json": "3d15dfe667315bc78c9b072e61bd748e9bd2c60202cea7c28c0ed63868b34c79",
+    "instrument_metadata.json": "b5595d87b3c108ca3344fc6512d37bc1732828becc3f704d4e12f0c5c437e902",
+    "okx_instruments.json": "efb1e17f3cc31d280941eec691344b0c7303141fea149663de92ade4009d749f",
+    "source_access.json": "c952940af5aa2fb264f09779e375c04cc9f04590f6db401ea004f66c33646229"
+  },
+  "scripts": {
+    "fetch_supplements.py": "ee744cdcbb46f2573a3b99e760f0f6a991e8e50c8d5635523539dd386089b329",
+    "probe_archive_access.py": "0299caee3c433c3ec8840319674bc785f4e0ceefd893150c575610739f21caf8"
+  }
+}

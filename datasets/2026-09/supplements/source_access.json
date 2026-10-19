@@ -1,0 +1,85 @@
+{
+  "scope": "Small BTC/date source-access probes only; not complete archive inventory.",
+  "paid_access_used": false,
+  "archive_bodies_downloaded": false,
+  "results": [
+    {
+      "name": "hyperliquid_asset_contexts_sep01",
+      "url": "https://hyperliquid-archive.s3.amazonaws.com/asset_ctxs/20260901.csv.lz4",
+      "method": "HEAD",
+      "access": "anonymous",
+      "checked_at": "2026-10-19T11:12:38.663454+00:00",
+      "http_status": 403,
+      "content_length": null,
+      "content_type": "application/xml",
+      "final_url": "https://hyperliquid-archive.s3.amazonaws.com/asset_ctxs/20260901.csv.lz4",
+      "interpretation": "Anonymous access denied; does not prove object absence."
+    },
+    {
+      "name": "hyperliquid_asset_contexts_sep30",
+      "url": "https://hyperliquid-archive.s3.amazonaws.com/asset_ctxs/20260930.csv.lz4",
+      "method": "HEAD",
+      "access": "anonymous",
+      "checked_at": "2026-10-19T11:12:38.664453+00:00",
+      "http_status": 403,
+      "content_length": null,
+      "content_type": "application/xml",
+      "final_url": "https://hyperliquid-archive.s3.amazonaws.com/asset_ctxs/20260930.csv.lz4",
+      "interpretation": "Anonymous access denied; does not prove object absence."
+    },
+    {
+      "name": "hyperliquid_btc_l2_sep01",
+      "url": "https://hyperliquid-archive.s3.amazonaws.com/market_data/20260901/0/l2Book/BTC.lz4",
+      "method": "HEAD",
+      "access": "anonymous",
+      "checked_at": "2026-10-19T11:12:39.727097+00:00",
+      "http_status": 403,
+      "content_length": null,
+      "content_type": "application/xml",
+      "final_url": "https://hyperliquid-archive.s3.amazonaws.com/market_data/20260901/0/l2Book/BTC.lz4",
+      "interpretation": "Anonymous access denied; does not prove object absence."
+    },
+    {
+      "name": "binance_btc_aggtrades_sep01",
+      "url": "https://data.binance.vision/data/futures/um/daily/aggTrades/BTCUSDT/BTCUSDT-aggTrades-2026-09-01.zip",
+      "method": "HEAD",
+      "access": "anonymous",
+      "checked_at": "2026-10-19T11:12:39.728097+00:00",
+      "http_status": 200,
+      "content_length": "16134016",
+      "content_type": "binary/octet-stream",
+      "final_url": "https://data.binance.vision/data/futures/um/daily/aggTrades/BTCUSDT/BTCUSDT-aggTrades-2026-09-01.zip",
+      "interpretation": "Object accessible by HEAD; content/schema/month completeness not downloaded or verified."
+    },
+    {
+      "name": "binance_btc_bookticker_sep01",
+      "url": "https://data.binance.vision/data/futures/um/daily/bookTicker/BTCUSDT/BTCUSDT-bookTicker-2026-09-01.zip",
+      "method": "HEAD",
+      "access": "anonymous",
+      "checked_at": "2026-10-19T11:12:40.228538+00:00",
+      "http_status": 404,
+      "content_length": null,
+      "content_type": "application/xml",
+      "final_url": "https://data.binance.vision/data/futures/um/daily/bookTicker/BTCUSDT/BTCUSDT-bookTicker-2026-09-01.zip",
+      "interpretation": "This exact object path was not found; other archive paths may exist."
+    },
+    {
+      "name": "bybit_btc_trades_sep01",
+      "url": "https://public.bybit.com/trading/BTCUSDT/BTCUSDT2026-09-01.csv.gz",
+      "method": "HEAD",
+      "access": "anonymous",
+      "checked_at": "2026-10-19T11:12:40.539331+00:00",
+      "http_status": 200,
+      "content_length": "70145746",
+      "content_type": "text/csv",
+      "final_url": "https://public.bybit.com/trading/BTCUSDT/BTCUSDT2026-09-01.csv.gz",
+      "interpretation": "Object accessible by HEAD; content/schema/month completeness not downloaded or verified."
+    }
+  ],
+  "documentation": {
+    "hyperliquid": "https://hyperliquid.gitbook.io/hyperliquid-docs/historical-data",
+    "binance": "https://github.com/binance/binance-public-data",
+    "bybit": "https://public.bybit.com/trading/",
+    "okx": "https://www.okx.com/historical-data"
+  }
+}

@@ -38,6 +38,10 @@ Volume retains each endpoint's native units. OKX contract-volume fields and base
 
 Historical CEX mark opens are retained where supplied. Hyperliquid trade prices do not stand in for its oracle or mark prices. Missing mark/oracle values remain missing. Hyperliquid funding valuation requires its oracle-price basis, so a funding-cash PnL backtest needs additional verified oracle observations or an explicit valuation estimate.
 
+## Supplementary requirements
+
+[Current contract specifications and research readiness](supplements/README.md) distinguish the downloaded 60-market metadata from unverified historical constraints, missing Hyperliquid oracle history and maker-execution inputs. Current specifications are a separate snapshot and do not alter the frozen September baseline.
+
 ## Reproduce and validate
 
 From the repository root, Python 3.10+:
