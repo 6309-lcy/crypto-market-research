@@ -4,7 +4,7 @@ These tables are extracted from the included result workbooks. Each study has it
 
 ## Funding: Performance Metrics
 
-Source: [funding_backtest_results.xlsx](funding_backtest_results.xlsx), sheet `Performance Metrics`.
+Source: [funding_backtest_results.xlsx](funding/funding_backtest_results.xlsx), sheet `Performance Metrics`.
 
 | Metric | Value |
 | --- | --- |
@@ -24,7 +24,7 @@ Source: [funding_backtest_results.xlsx](funding_backtest_results.xlsx), sheet `P
 
 ## Funding: Backtest Notes
 
-Source: [funding_backtest_results.xlsx](funding_backtest_results.xlsx), sheet `Backtest Notes`.
+Source: [funding_backtest_results.xlsx](funding/funding_backtest_results.xlsx), sheet `Backtest Notes`.
 
 | item | detail |
 | --- | --- |
@@ -33,7 +33,7 @@ Source: [funding_backtest_results.xlsx](funding_backtest_results.xlsx), sheet `B
 
 ## Liquidity: Resilience Scores
 
-Source: [liquidity_analysis_results.xlsx](liquidity_analysis_results.xlsx), sheet `Resilience Scores`.
+Source: [liquidity_analysis_results.xlsx](liquidity/liquidity_analysis_results.xlsx), sheet `Resilience Scores`.
 
 | exchange | resilience_score | avg_recovery_seconds |
 | --- | --- | --- |
@@ -43,7 +43,7 @@ Source: [liquidity_analysis_results.xlsx](liquidity_analysis_results.xlsx), shee
 
 ## Liquidity: Performance Summary
 
-Source: [liquidity_backtest_results.xlsx](liquidity_backtest_results.xlsx), sheet `Performance Summary`.
+Source: [liquidity_backtest_results.xlsx](liquidity/liquidity_backtest_results.xlsx), sheet `Performance Summary`.
 
 | Metric | Value |
 | --- | --- |
@@ -63,7 +63,7 @@ Source: [liquidity_backtest_results.xlsx](liquidity_backtest_results.xlsx), shee
 
 ## Dex: Fragmentation Metrics
 
-Source: [dex_analysis_results.xlsx](dex_analysis_results.xlsx), sheet `Fragmentation Metrics`.
+Source: [dex_analysis_results.xlsx](dex/dex_analysis_results.xlsx), sheet `Fragmentation Metrics`.
 
 | pair | num_pools | total_tvl_usd | gini_coefficient | hhi | top_dex | top_dex_share_pct |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -72,7 +72,7 @@ Source: [dex_analysis_results.xlsx](dex_analysis_results.xlsx), sheet `Fragmenta
 
 ## Dex: Performance Metrics
 
-Source: [dex_backtest_results.xlsx](dex_backtest_results.xlsx), sheet `Performance Metrics`.
+Source: [dex_backtest_results.xlsx](dex/dex_backtest_results.xlsx), sheet `Performance Metrics`.
 
 | Metric | Value |
 | --- | --- |
@@ -91,7 +91,7 @@ Source: [dex_backtest_results.xlsx](dex_backtest_results.xlsx), sheet `Performan
 
 ## Ghost: Performance Summary
 
-Source: [ghost_backtest_results.xlsx](ghost_backtest_results.xlsx), sheet `Performance Summary`.
+Source: [ghost_backtest_results.xlsx](ghost/ghost_backtest_results.xlsx), sheet `Performance Summary`.
 
 | Metric | Value |
 | --- | --- |

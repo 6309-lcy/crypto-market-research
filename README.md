@@ -2,14 +2,29 @@
 
 Python research on perpetual-futures funding, centralized-exchange order books, decentralized-exchange liquidity, and disappearing liquidity levels.
 
-All source files, datasets, charts, and result workbooks live in this single folder. Topic prefixes connect related files.
+Research is organized into four topic directories. Each directory contains its Python source, datasets, charts, and result workbooks.
 
-| Prefix | Study | Included results |
+| Directory | Study | Included results |
 | --- | --- | --- |
-| `funding_` | Funding-rate differences across Binance, Bybit, OKX, and Hyperliquid | Fee-aware strategy simulation, funding spreads, and trade logs |
-| `liquidity_` | BTC order-book depth and stress across Binance, Bybit, and OKX | Slippage, recovery estimates, and resilience scores |
-| `dex_` | ETH/USDC and WBTC/USDC liquidity fragmentation | Pool concentration and routing-cost comparisons |
-| `ghost_` | Large BTC liquidity levels and cancellation behaviour | Event labels, classification, and price-response analysis |
+| [`funding/`](funding/) | Funding-rate differences across Binance, Bybit, OKX, and Hyperliquid | Fee-aware strategy simulation, funding spreads, and trade logs |
+| [`liquidity/`](liquidity/) | BTC order-book depth and stress across Binance, Bybit, and OKX | Slippage, recovery estimates, and resilience scores |
+| [`dex/`](dex/) | ETH/USDC and WBTC/USDC liquidity fragmentation | Pool concentration and routing-cost comparisons |
+| [`ghost/`](ghost/) | Large BTC liquidity levels and cancellation behaviour | Event labels, classification, and price-response analysis |
+
+## Repository structure
+
+```text
+crypto-market-research/
+|-- README.md
+|-- RESULTS.md
+|-- requirements.txt
+|-- funding/       # Funding rates, strategy, and simulated backtests
+|-- liquidity/     # Order-book depth, stress, and resilience
+|-- dex/           # Pool fragmentation and execution routing
+`-- ghost/         # Disappearing liquidity and price response
+```
+
+Each topic keeps its inputs and outputs together. File prefixes identify the study when downloading individual files.
 
 ## Results
 
@@ -24,25 +39,25 @@ All source files, datasets, charts, and result workbooks live in this single fol
 
 ### Funding strategy simulation
 
-![Funding strategy simulation: backtest performance and trade outcomes](funding_backtest_results.png)
+![Funding strategy simulation: backtest performance and trade outcomes](funding/funding_backtest_results.png)
 
 Fee-aware funding strategy results using observed Binance history and simulated histories for Bybit, OKX, and Hyperliquid (seed 42). The simulated net PnL is $5,195.67 across 84 trades.
 
 ### Order-book depth and slippage
 
-![BTC order-book depth and estimated slippage across Binance, Bybit, and OKX](liquidity_depth_slippage_comparison.png)
+![BTC order-book depth and estimated slippage across Binance, Bybit, and OKX](liquidity/liquidity_depth_slippage_comparison.png)
 
-Compare visible BTC liquidity and estimated execution costs across the three exchanges. Results reflect the collected snapshots and the trade-size assumptions in `liquidity_analysis.py`.
+Compare visible BTC liquidity and estimated execution costs across the three exchanges. Results reflect the collected snapshots and the trade-size assumptions in `liquidity/liquidity_analysis.py`.
 
 ### DEX routing comparison
 
-![Estimated execution costs for single-venue and optimized DEX routing](dex_routing_comparison.png)
+![Estimated execution costs for single-venue and optimized DEX routing](dex/dex_routing_comparison.png)
 
-Compare modeled routing costs for ETH/USDC and WBTC/USDC. Estimates depend on the included pool snapshot and the liquidity assumptions in `dex_analysis.py`.
+Compare modeled routing costs for ETH/USDC and WBTC/USDC. Estimates depend on the included pool snapshot and the liquidity assumptions in `dex/dex_analysis.py`.
 
 ### Price response around ghost events
 
-![Observed price response following classified ghost-liquidity events](ghost_price_after_events.png)
+![Observed price response following classified ghost-liquidity events](ghost/ghost_price_after_events.png)
 
 Price-response analysis around disappearing large liquidity levels. Snapshot-based labels describe observed order-book behaviour; account identities and intent are unobserved.
 
@@ -53,14 +68,14 @@ Use Python 3.10 or newer. For an existing Conda environment:
 ```powershell
 conda activate aqa2
 python -m pip install -r requirements.txt
-python funding_analysis.py
-python funding_backtest.py
-python liquidity_analysis.py
-python liquidity_backtest.py
-python dex_analysis.py
-python dex_backtest.py
-python ghost_analysis.py
-python ghost_backtest.py
+python funding/funding_analysis.py
+python funding/funding_backtest.py
+python liquidity/liquidity_analysis.py
+python liquidity/liquidity_backtest.py
+python dex/dex_analysis.py
+python dex/dex_backtest.py
+python ghost/ghost_analysis.py
+python ghost/ghost_backtest.py
 ```
 
 Each script reads and writes files beside itself. Running an analysis or backtest updates its topic's workbooks and charts. Run analyses before their associated backtests. `*_fetch_*.py` scripts fetch fresh public market data, and `*_ws_collector.py` scripts collect new live snapshots; these require network access and may be subject to exchange restrictions.
