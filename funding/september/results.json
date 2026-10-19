@@ -1,0 +1,1741 @@
+{
+  "dataset_id": "crypto-perpetuals-2026-09-v1",
+  "dataset_sha256": "a0fc4689fc08a099ff5d5c8ba8bc160471081fa4a77b9f20997c35b492e72277",
+  "input_sha256": {
+    "candles.csv": "1942d8639bb4b94d14d3c93c31ad96afafc4bea62484d62995391fe21302e3d1",
+    "funding.csv": "adf7b022ee79c8a088e494f733240d3e91b66c915556f48eabc27e6bdeeba123",
+    "coverage.csv": "95da884753b4ea6c644e7e0b3a3f7a2372c72e9c6eb82d618257c994bd738af3"
+  },
+  "code_sha256": "a684650ac0ae6d043615aba09dcb82fe3ece64399c2657ed0187284461d6215c",
+  "common_bases": [
+    "ADA",
+    "ARB",
+    "ATOM",
+    "AVAX",
+    "BNB",
+    "BTC",
+    "DOGE",
+    "DOT",
+    "ETH",
+    "LINK",
+    "LTC",
+    "OP",
+    "SOL",
+    "UNI",
+    "XRP"
+  ],
+  "venues": [
+    "binance",
+    "bybit",
+    "okx",
+    "hyperliquid"
+  ],
+  "fees_bps": {
+    "binance": 5.0,
+    "bybit": 5.5,
+    "okx": 5.0,
+    "hyperliquid": 4.5
+  },
+  "start_inclusive": "2026-09-01T00:00:00+00:00",
+  "data_end_exclusive": "2026-10-01T00:00:00+00:00",
+  "final_liquidation": "2026-09-30T23:00:00+00:00",
+  "results": [
+    {
+      "config": {
+        "policy": "original",
+        "oracle_proxy_multiplier": 1.0,
+        "capital": 100000.0,
+        "leg_notional": 10000.0,
+        "max_pairs": 5,
+        "reserve": 1000.0,
+        "entry_buffer_bps": 2.0,
+        "exit_bps": 0.5,
+        "max_hold_hours": 48,
+        "publication_delay_minutes": 5,
+        "fill_cost_bps": 1.0
+      },
+      "start": "2026-09-01T00:00:00+00:00",
+      "end": "2026-09-30T23:00:00+00:00",
+      "trades": 0,
+      "funding_pnl": 0.0,
+      "reference_price_pnl": 0.0,
+      "execution_cost": 0.0,
+      "price_pnl": 0.0,
+      "fees": 0.0,
+      "net_pnl": 0.0,
+      "return_pct": 0.0,
+      "max_drawdown_pct": 0.0,
+      "max_open_pairs": 0,
+      "max_gross_exposure": 0.0,
+      "oracle_proxy_payments": 0,
+      "candidate_count": 1320,
+      "threshold_pass_count": 0,
+      "eligible_markets": [
+        [
+          "binance",
+          "ADA"
+        ],
+        [
+          "binance",
+          "ARB"
+        ],
+        [
+          "binance",
+          "ATOM"
+        ],
+        [
+          "binance",
+          "AVAX"
+        ],
+        [
+          "binance",
+          "BNB"
+        ],
+        [
+          "binance",
+          "BTC"
+        ],
+        [
+          "binance",
+          "DOGE"
+        ],
+        [
+          "binance",
+          "DOT"
+        ],
+        [
+          "binance",
+          "ETH"
+        ],
+        [
+          "binance",
+          "LINK"
+        ],
+        [
+          "binance",
+          "LTC"
+        ],
+        [
+          "binance",
+          "OP"
+        ],
+        [
+          "binance",
+          "SOL"
+        ],
+        [
+          "binance",
+          "UNI"
+        ],
+        [
+          "binance",
+          "XRP"
+        ],
+        [
+          "bybit",
+          "ADA"
+        ],
+        [
+          "bybit",
+          "ARB"
+        ],
+        [
+          "bybit",
+          "ATOM"
+        ],
+        [
+          "bybit",
+          "AVAX"
+        ],
+        [
+          "bybit",
+          "BNB"
+        ],
+        [
+          "bybit",
+          "BTC"
+        ],
+        [
+          "bybit",
+          "DOGE"
+        ],
+        [
+          "bybit",
+          "DOT"
+        ],
+        [
+          "bybit",
+          "ETH"
+        ],
+        [
+          "bybit",
+          "LINK"
+        ],
+        [
+          "bybit",
+          "LTC"
+        ],
+        [
+          "bybit",
+          "OP"
+        ],
+        [
+          "bybit",
+          "SOL"
+        ],
+        [
+          "bybit",
+          "UNI"
+        ],
+        [
+          "bybit",
+          "XRP"
+        ],
+        [
+          "hyperliquid",
+          "ADA"
+        ],
+        [
+          "hyperliquid",
+          "ARB"
+        ],
+        [
+          "hyperliquid",
+          "ATOM"
+        ],
+        [
+          "hyperliquid",
+          "AVAX"
+        ],
+        [
+          "hyperliquid",
+          "BNB"
+        ],
+        [
+          "hyperliquid",
+          "BTC"
+        ],
+        [
+          "hyperliquid",
+          "DOGE"
+        ],
+        [
+          "hyperliquid",
+          "DOT"
+        ],
+        [
+          "hyperliquid",
+          "ETH"
+        ],
+        [
+          "hyperliquid",
+          "LINK"
+        ],
+        [
+          "hyperliquid",
+          "LTC"
+        ],
+        [
+          "hyperliquid",
+          "OP"
+        ],
+        [
+          "hyperliquid",
+          "SOL"
+        ],
+        [
+          "hyperliquid",
+          "UNI"
+        ],
+        [
+          "hyperliquid",
+          "XRP"
+        ],
+        [
+          "okx",
+          "ADA"
+        ],
+        [
+          "okx",
+          "ARB"
+        ],
+        [
+          "okx",
+          "ATOM"
+        ],
+        [
+          "okx",
+          "AVAX"
+        ],
+        [
+          "okx",
+          "BNB"
+        ],
+        [
+          "okx",
+          "BTC"
+        ],
+        [
+          "okx",
+          "DOGE"
+        ],
+        [
+          "okx",
+          "DOT"
+        ],
+        [
+          "okx",
+          "ETH"
+        ],
+        [
+          "okx",
+          "LINK"
+        ],
+        [
+          "okx",
+          "LTC"
+        ],
+        [
+          "okx",
+          "OP"
+        ],
+        [
+          "okx",
+          "SOL"
+        ],
+        [
+          "okx",
+          "UNI"
+        ],
+        [
+          "okx",
+          "XRP"
+        ]
+      ],
+      "scenario": "original_execution_1bps"
+    },
+    {
+      "config": {
+        "policy": "original",
+        "oracle_proxy_multiplier": 1.0,
+        "capital": 100000.0,
+        "leg_notional": 10000.0,
+        "max_pairs": 5,
+        "reserve": 1000.0,
+        "entry_buffer_bps": 2.0,
+        "exit_bps": 0.5,
+        "max_hold_hours": 48,
+        "publication_delay_minutes": 5,
+        "fill_cost_bps": 3.0
+      },
+      "start": "2026-09-01T00:00:00+00:00",
+      "end": "2026-09-30T23:00:00+00:00",
+      "trades": 0,
+      "funding_pnl": 0.0,
+      "reference_price_pnl": 0.0,
+      "execution_cost": 0.0,
+      "price_pnl": 0.0,
+      "fees": 0.0,
+      "net_pnl": 0.0,
+      "return_pct": 0.0,
+      "max_drawdown_pct": 0.0,
+      "max_open_pairs": 0,
+      "max_gross_exposure": 0.0,
+      "oracle_proxy_payments": 0,
+      "candidate_count": 1320,
+      "threshold_pass_count": 0,
+      "eligible_markets": [
+        [
+          "binance",
+          "ADA"
+        ],
+        [
+          "binance",
+          "ARB"
+        ],
+        [
+          "binance",
+          "ATOM"
+        ],
+        [
+          "binance",
+          "AVAX"
+        ],
+        [
+          "binance",
+          "BNB"
+        ],
+        [
+          "binance",
+          "BTC"
+        ],
+        [
+          "binance",
+          "DOGE"
+        ],
+        [
+          "binance",
+          "DOT"
+        ],
+        [
+          "binance",
+          "ETH"
+        ],
+        [
+          "binance",
+          "LINK"
+        ],
+        [
+          "binance",
+          "LTC"
+        ],
+        [
+          "binance",
+          "OP"
+        ],
+        [
+          "binance",
+          "SOL"
+        ],
+        [
+          "binance",
+          "UNI"
+        ],
+        [
+          "binance",
+          "XRP"
+        ],
+        [
+          "bybit",
+          "ADA"
+        ],
+        [
+          "bybit",
+          "ARB"
+        ],
+        [
+          "bybit",
+          "ATOM"
+        ],
+        [
+          "bybit",
+          "AVAX"
+        ],
+        [
+          "bybit",
+          "BNB"
+        ],
+        [
+          "bybit",
+          "BTC"
+        ],
+        [
+          "bybit",
+          "DOGE"
+        ],
+        [
+          "bybit",
+          "DOT"
+        ],
+        [
+          "bybit",
+          "ETH"
+        ],
+        [
+          "bybit",
+          "LINK"
+        ],
+        [
+          "bybit",
+          "LTC"
+        ],
+        [
+          "bybit",
+          "OP"
+        ],
+        [
+          "bybit",
+          "SOL"
+        ],
+        [
+          "bybit",
+          "UNI"
+        ],
+        [
+          "bybit",
+          "XRP"
+        ],
+        [
+          "hyperliquid",
+          "ADA"
+        ],
+        [
+          "hyperliquid",
+          "ARB"
+        ],
+        [
+          "hyperliquid",
+          "ATOM"
+        ],
+        [
+          "hyperliquid",
+          "AVAX"
+        ],
+        [
+          "hyperliquid",
+          "BNB"
+        ],
+        [
+          "hyperliquid",
+          "BTC"
+        ],
+        [
+          "hyperliquid",
+          "DOGE"
+        ],
+        [
+          "hyperliquid",
+          "DOT"
+        ],
+        [
+          "hyperliquid",
+          "ETH"
+        ],
+        [
+          "hyperliquid",
+          "LINK"
+        ],
+        [
+          "hyperliquid",
+          "LTC"
+        ],
+        [
+          "hyperliquid",
+          "OP"
+        ],
+        [
+          "hyperliquid",
+          "SOL"
+        ],
+        [
+          "hyperliquid",
+          "UNI"
+        ],
+        [
+          "hyperliquid",
+          "XRP"
+        ],
+        [
+          "okx",
+          "ADA"
+        ],
+        [
+          "okx",
+          "ARB"
+        ],
+        [
+          "okx",
+          "ATOM"
+        ],
+        [
+          "okx",
+          "AVAX"
+        ],
+        [
+          "okx",
+          "BNB"
+        ],
+        [
+          "okx",
+          "BTC"
+        ],
+        [
+          "okx",
+          "DOGE"
+        ],
+        [
+          "okx",
+          "DOT"
+        ],
+        [
+          "okx",
+          "ETH"
+        ],
+        [
+          "okx",
+          "LINK"
+        ],
+        [
+          "okx",
+          "LTC"
+        ],
+        [
+          "okx",
+          "OP"
+        ],
+        [
+          "okx",
+          "SOL"
+        ],
+        [
+          "okx",
+          "UNI"
+        ],
+        [
+          "okx",
+          "XRP"
+        ]
+      ],
+      "scenario": "original_execution_3bps"
+    },
+    {
+      "config": {
+        "policy": "original",
+        "oracle_proxy_multiplier": 1.0,
+        "capital": 100000.0,
+        "leg_notional": 10000.0,
+        "max_pairs": 5,
+        "reserve": 1000.0,
+        "entry_buffer_bps": 2.0,
+        "exit_bps": 0.5,
+        "max_hold_hours": 48,
+        "publication_delay_minutes": 5,
+        "fill_cost_bps": 5.0
+      },
+      "start": "2026-09-01T00:00:00+00:00",
+      "end": "2026-09-30T23:00:00+00:00",
+      "trades": 0,
+      "funding_pnl": 0.0,
+      "reference_price_pnl": 0.0,
+      "execution_cost": 0.0,
+      "price_pnl": 0.0,
+      "fees": 0.0,
+      "net_pnl": 0.0,
+      "return_pct": 0.0,
+      "max_drawdown_pct": 0.0,
+      "max_open_pairs": 0,
+      "max_gross_exposure": 0.0,
+      "oracle_proxy_payments": 0,
+      "candidate_count": 1320,
+      "threshold_pass_count": 0,
+      "eligible_markets": [
+        [
+          "binance",
+          "ADA"
+        ],
+        [
+          "binance",
+          "ARB"
+        ],
+        [
+          "binance",
+          "ATOM"
+        ],
+        [
+          "binance",
+          "AVAX"
+        ],
+        [
+          "binance",
+          "BNB"
+        ],
+        [
+          "binance",
+          "BTC"
+        ],
+        [
+          "binance",
+          "DOGE"
+        ],
+        [
+          "binance",
+          "DOT"
+        ],
+        [
+          "binance",
+          "ETH"
+        ],
+        [
+          "binance",
+          "LINK"
+        ],
+        [
+          "binance",
+          "LTC"
+        ],
+        [
+          "binance",
+          "OP"
+        ],
+        [
+          "binance",
+          "SOL"
+        ],
+        [
+          "binance",
+          "UNI"
+        ],
+        [
+          "binance",
+          "XRP"
+        ],
+        [
+          "bybit",
+          "ADA"
+        ],
+        [
+          "bybit",
+          "ARB"
+        ],
+        [
+          "bybit",
+          "ATOM"
+        ],
+        [
+          "bybit",
+          "AVAX"
+        ],
+        [
+          "bybit",
+          "BNB"
+        ],
+        [
+          "bybit",
+          "BTC"
+        ],
+        [
+          "bybit",
+          "DOGE"
+        ],
+        [
+          "bybit",
+          "DOT"
+        ],
+        [
+          "bybit",
+          "ETH"
+        ],
+        [
+          "bybit",
+          "LINK"
+        ],
+        [
+          "bybit",
+          "LTC"
+        ],
+        [
+          "bybit",
+          "OP"
+        ],
+        [
+          "bybit",
+          "SOL"
+        ],
+        [
+          "bybit",
+          "UNI"
+        ],
+        [
+          "bybit",
+          "XRP"
+        ],
+        [
+          "hyperliquid",
+          "ADA"
+        ],
+        [
+          "hyperliquid",
+          "ARB"
+        ],
+        [
+          "hyperliquid",
+          "ATOM"
+        ],
+        [
+          "hyperliquid",
+          "AVAX"
+        ],
+        [
+          "hyperliquid",
+          "BNB"
+        ],
+        [
+          "hyperliquid",
+          "BTC"
+        ],
+        [
+          "hyperliquid",
+          "DOGE"
+        ],
+        [
+          "hyperliquid",
+          "DOT"
+        ],
+        [
+          "hyperliquid",
+          "ETH"
+        ],
+        [
+          "hyperliquid",
+          "LINK"
+        ],
+        [
+          "hyperliquid",
+          "LTC"
+        ],
+        [
+          "hyperliquid",
+          "OP"
+        ],
+        [
+          "hyperliquid",
+          "SOL"
+        ],
+        [
+          "hyperliquid",
+          "UNI"
+        ],
+        [
+          "hyperliquid",
+          "XRP"
+        ],
+        [
+          "okx",
+          "ADA"
+        ],
+        [
+          "okx",
+          "ARB"
+        ],
+        [
+          "okx",
+          "ATOM"
+        ],
+        [
+          "okx",
+          "AVAX"
+        ],
+        [
+          "okx",
+          "BNB"
+        ],
+        [
+          "okx",
+          "BTC"
+        ],
+        [
+          "okx",
+          "DOGE"
+        ],
+        [
+          "okx",
+          "DOT"
+        ],
+        [
+          "okx",
+          "ETH"
+        ],
+        [
+          "okx",
+          "LINK"
+        ],
+        [
+          "okx",
+          "LTC"
+        ],
+        [
+          "okx",
+          "OP"
+        ],
+        [
+          "okx",
+          "SOL"
+        ],
+        [
+          "okx",
+          "UNI"
+        ],
+        [
+          "okx",
+          "XRP"
+        ]
+      ],
+      "scenario": "original_execution_5bps"
+    },
+    {
+      "config": {
+        "policy": "august_frozen",
+        "oracle_proxy_multiplier": 1.0,
+        "capital": 100000.0,
+        "leg_notional": 10000.0,
+        "max_pairs": 5,
+        "reserve": 1000.0,
+        "entry_buffer_bps": 2.0,
+        "exit_bps": 0.5,
+        "max_hold_hours": 48,
+        "publication_delay_minutes": 5,
+        "fill_cost_bps": 1.0
+      },
+      "start": "2026-09-01T00:00:00+00:00",
+      "end": "2026-09-30T23:00:00+00:00",
+      "trades": 387,
+      "funding_pnl": 338.2101913720832,
+      "reference_price_pnl": 425.16078185156846,
+      "execution_cost": 1470.8431965556686,
+      "price_pnl": -1045.6824147040998,
+      "fees": 7205.054079698131,
+      "net_pnl": -7912.5263030301485,
+      "return_pct": -7.912526303030148,
+      "max_drawdown_pct": -7.917692484348848,
+      "max_open_pairs": 5,
+      "max_gross_exposure": 100954.46736154257,
+      "oracle_proxy_payments": 2878,
+      "candidate_count": 10635,
+      "threshold_pass_count": 4058,
+      "eligible_markets": [
+        [
+          "binance",
+          "ADA"
+        ],
+        [
+          "binance",
+          "ARB"
+        ],
+        [
+          "binance",
+          "ATOM"
+        ],
+        [
+          "binance",
+          "AVAX"
+        ],
+        [
+          "binance",
+          "BNB"
+        ],
+        [
+          "binance",
+          "BTC"
+        ],
+        [
+          "binance",
+          "DOGE"
+        ],
+        [
+          "binance",
+          "DOT"
+        ],
+        [
+          "binance",
+          "ETH"
+        ],
+        [
+          "binance",
+          "LINK"
+        ],
+        [
+          "binance",
+          "LTC"
+        ],
+        [
+          "binance",
+          "OP"
+        ],
+        [
+          "binance",
+          "SOL"
+        ],
+        [
+          "binance",
+          "UNI"
+        ],
+        [
+          "binance",
+          "XRP"
+        ],
+        [
+          "bybit",
+          "ADA"
+        ],
+        [
+          "bybit",
+          "ARB"
+        ],
+        [
+          "bybit",
+          "ATOM"
+        ],
+        [
+          "bybit",
+          "AVAX"
+        ],
+        [
+          "bybit",
+          "BNB"
+        ],
+        [
+          "bybit",
+          "BTC"
+        ],
+        [
+          "bybit",
+          "DOGE"
+        ],
+        [
+          "bybit",
+          "DOT"
+        ],
+        [
+          "bybit",
+          "ETH"
+        ],
+        [
+          "bybit",
+          "LINK"
+        ],
+        [
+          "bybit",
+          "LTC"
+        ],
+        [
+          "bybit",
+          "OP"
+        ],
+        [
+          "bybit",
+          "SOL"
+        ],
+        [
+          "bybit",
+          "UNI"
+        ],
+        [
+          "bybit",
+          "XRP"
+        ],
+        [
+          "hyperliquid",
+          "ADA"
+        ],
+        [
+          "hyperliquid",
+          "ARB"
+        ],
+        [
+          "hyperliquid",
+          "ATOM"
+        ],
+        [
+          "hyperliquid",
+          "AVAX"
+        ],
+        [
+          "hyperliquid",
+          "BNB"
+        ],
+        [
+          "hyperliquid",
+          "BTC"
+        ],
+        [
+          "hyperliquid",
+          "DOGE"
+        ],
+        [
+          "hyperliquid",
+          "DOT"
+        ],
+        [
+          "hyperliquid",
+          "ETH"
+        ],
+        [
+          "hyperliquid",
+          "LINK"
+        ],
+        [
+          "hyperliquid",
+          "LTC"
+        ],
+        [
+          "hyperliquid",
+          "OP"
+        ],
+        [
+          "hyperliquid",
+          "SOL"
+        ],
+        [
+          "hyperliquid",
+          "UNI"
+        ],
+        [
+          "hyperliquid",
+          "XRP"
+        ],
+        [
+          "okx",
+          "ADA"
+        ],
+        [
+          "okx",
+          "ARB"
+        ],
+        [
+          "okx",
+          "ATOM"
+        ],
+        [
+          "okx",
+          "AVAX"
+        ],
+        [
+          "okx",
+          "BNB"
+        ],
+        [
+          "okx",
+          "BTC"
+        ],
+        [
+          "okx",
+          "DOGE"
+        ],
+        [
+          "okx",
+          "DOT"
+        ],
+        [
+          "okx",
+          "ETH"
+        ],
+        [
+          "okx",
+          "LINK"
+        ],
+        [
+          "okx",
+          "LTC"
+        ],
+        [
+          "okx",
+          "OP"
+        ],
+        [
+          "okx",
+          "SOL"
+        ],
+        [
+          "okx",
+          "UNI"
+        ],
+        [
+          "okx",
+          "XRP"
+        ]
+      ],
+      "scenario": "august_frozen_execution_1bps"
+    },
+    {
+      "config": {
+        "policy": "august_frozen",
+        "oracle_proxy_multiplier": 1.0,
+        "capital": 100000.0,
+        "leg_notional": 10000.0,
+        "max_pairs": 5,
+        "reserve": 1000.0,
+        "entry_buffer_bps": 2.0,
+        "exit_bps": 0.5,
+        "max_hold_hours": 48,
+        "publication_delay_minutes": 5,
+        "fill_cost_bps": 3.0
+      },
+      "start": "2026-09-01T00:00:00+00:00",
+      "end": "2026-09-30T23:00:00+00:00",
+      "trades": 387,
+      "funding_pnl": 333.1567260364234,
+      "reference_price_pnl": 421.47229710594206,
+      "execution_cost": 4351.180899113184,
+      "price_pnl": -3929.708602007242,
+      "fees": 7104.904692984297,
+      "net_pnl": -10701.456568955116,
+      "return_pct": -10.701456568955116,
+      "max_drawdown_pct": -10.706250500897285,
+      "max_open_pairs": 5,
+      "max_gross_exposure": 100803.8241516814,
+      "oracle_proxy_payments": 2878,
+      "candidate_count": 10635,
+      "threshold_pass_count": 4058,
+      "eligible_markets": [
+        [
+          "binance",
+          "ADA"
+        ],
+        [
+          "binance",
+          "ARB"
+        ],
+        [
+          "binance",
+          "ATOM"
+        ],
+        [
+          "binance",
+          "AVAX"
+        ],
+        [
+          "binance",
+          "BNB"
+        ],
+        [
+          "binance",
+          "BTC"
+        ],
+        [
+          "binance",
+          "DOGE"
+        ],
+        [
+          "binance",
+          "DOT"
+        ],
+        [
+          "binance",
+          "ETH"
+        ],
+        [
+          "binance",
+          "LINK"
+        ],
+        [
+          "binance",
+          "LTC"
+        ],
+        [
+          "binance",
+          "OP"
+        ],
+        [
+          "binance",
+          "SOL"
+        ],
+        [
+          "binance",
+          "UNI"
+        ],
+        [
+          "binance",
+          "XRP"
+        ],
+        [
+          "bybit",
+          "ADA"
+        ],
+        [
+          "bybit",
+          "ARB"
+        ],
+        [
+          "bybit",
+          "ATOM"
+        ],
+        [
+          "bybit",
+          "AVAX"
+        ],
+        [
+          "bybit",
+          "BNB"
+        ],
+        [
+          "bybit",
+          "BTC"
+        ],
+        [
+          "bybit",
+          "DOGE"
+        ],
+        [
+          "bybit",
+          "DOT"
+        ],
+        [
+          "bybit",
+          "ETH"
+        ],
+        [
+          "bybit",
+          "LINK"
+        ],
+        [
+          "bybit",
+          "LTC"
+        ],
+        [
+          "bybit",
+          "OP"
+        ],
+        [
+          "bybit",
+          "SOL"
+        ],
+        [
+          "bybit",
+          "UNI"
+        ],
+        [
+          "bybit",
+          "XRP"
+        ],
+        [
+          "hyperliquid",
+          "ADA"
+        ],
+        [
+          "hyperliquid",
+          "ARB"
+        ],
+        [
+          "hyperliquid",
+          "ATOM"
+        ],
+        [
+          "hyperliquid",
+          "AVAX"
+        ],
+        [
+          "hyperliquid",
+          "BNB"
+        ],
+        [
+          "hyperliquid",
+          "BTC"
+        ],
+        [
+          "hyperliquid",
+          "DOGE"
+        ],
+        [
+          "hyperliquid",
+          "DOT"
+        ],
+        [
+          "hyperliquid",
+          "ETH"
+        ],
+        [
+          "hyperliquid",
+          "LINK"
+        ],
+        [
+          "hyperliquid",
+          "LTC"
+        ],
+        [
+          "hyperliquid",
+          "OP"
+        ],
+        [
+          "hyperliquid",
+          "SOL"
+        ],
+        [
+          "hyperliquid",
+          "UNI"
+        ],
+        [
+          "hyperliquid",
+          "XRP"
+        ],
+        [
+          "okx",
+          "ADA"
+        ],
+        [
+          "okx",
+          "ARB"
+        ],
+        [
+          "okx",
+          "ATOM"
+        ],
+        [
+          "okx",
+          "AVAX"
+        ],
+        [
+          "okx",
+          "BNB"
+        ],
+        [
+          "okx",
+          "BTC"
+        ],
+        [
+          "okx",
+          "DOGE"
+        ],
+        [
+          "okx",
+          "DOT"
+        ],
+        [
+          "okx",
+          "ETH"
+        ],
+        [
+          "okx",
+          "LINK"
+        ],
+        [
+          "okx",
+          "LTC"
+        ],
+        [
+          "okx",
+          "OP"
+        ],
+        [
+          "okx",
+          "SOL"
+        ],
+        [
+          "okx",
+          "UNI"
+        ],
+        [
+          "okx",
+          "XRP"
+        ]
+      ],
+      "scenario": "august_frozen_execution_3bps"
+    },
+    {
+      "config": {
+        "policy": "august_frozen",
+        "oracle_proxy_multiplier": 1.0,
+        "capital": 100000.0,
+        "leg_notional": 10000.0,
+        "max_pairs": 5,
+        "reserve": 1000.0,
+        "entry_buffer_bps": 2.0,
+        "exit_bps": 0.5,
+        "max_hold_hours": 48,
+        "publication_delay_minutes": 5,
+        "fill_cost_bps": 5.0
+      },
+      "start": "2026-09-01T00:00:00+00:00",
+      "end": "2026-09-30T23:00:00+00:00",
+      "trades": 387,
+      "funding_pnl": 328.45491677813067,
+      "reference_price_pnl": 419.784071437659,
+      "execution_cost": 7150.275921477438,
+      "price_pnl": -6730.491850039778,
+      "fees": 7005.21448601941,
+      "net_pnl": -13407.25141928106,
+      "return_pct": -13.40725141928106,
+      "max_drawdown_pct": -13.411681436806466,
+      "max_open_pairs": 5,
+      "max_gross_exposure": 100653.43964602663,
+      "oracle_proxy_payments": 2878,
+      "candidate_count": 10635,
+      "threshold_pass_count": 4058,
+      "eligible_markets": [
+        [
+          "binance",
+          "ADA"
+        ],
+        [
+          "binance",
+          "ARB"
+        ],
+        [
+          "binance",
+          "ATOM"
+        ],
+        [
+          "binance",
+          "AVAX"
+        ],
+        [
+          "binance",
+          "BNB"
+        ],
+        [
+          "binance",
+          "BTC"
+        ],
+        [
+          "binance",
+          "DOGE"
+        ],
+        [
+          "binance",
+          "DOT"
+        ],
+        [
+          "binance",
+          "ETH"
+        ],
+        [
+          "binance",
+          "LINK"
+        ],
+        [
+          "binance",
+          "LTC"
+        ],
+        [
+          "binance",
+          "OP"
+        ],
+        [
+          "binance",
+          "SOL"
+        ],
+        [
+          "binance",
+          "UNI"
+        ],
+        [
+          "binance",
+          "XRP"
+        ],
+        [
+          "bybit",
+          "ADA"
+        ],
+        [
+          "bybit",
+          "ARB"
+        ],
+        [
+          "bybit",
+          "ATOM"
+        ],
+        [
+          "bybit",
+          "AVAX"
+        ],
+        [
+          "bybit",
+          "BNB"
+        ],
+        [
+          "bybit",
+          "BTC"
+        ],
+        [
+          "bybit",
+          "DOGE"
+        ],
+        [
+          "bybit",
+          "DOT"
+        ],
+        [
+          "bybit",
+          "ETH"
+        ],
+        [
+          "bybit",
+          "LINK"
+        ],
+        [
+          "bybit",
+          "LTC"
+        ],
+        [
+          "bybit",
+          "OP"
+        ],
+        [
+          "bybit",
+          "SOL"
+        ],
+        [
+          "bybit",
+          "UNI"
+        ],
+        [
+          "bybit",
+          "XRP"
+        ],
+        [
+          "hyperliquid",
+          "ADA"
+        ],
+        [
+          "hyperliquid",
+          "ARB"
+        ],
+        [
+          "hyperliquid",
+          "ATOM"
+        ],
+        [
+          "hyperliquid",
+          "AVAX"
+        ],
+        [
+          "hyperliquid",
+          "BNB"
+        ],
+        [
+          "hyperliquid",
+          "BTC"
+        ],
+        [
+          "hyperliquid",
+          "DOGE"
+        ],
+        [
+          "hyperliquid",
+          "DOT"
+        ],
+        [
+          "hyperliquid",
+          "ETH"
+        ],
+        [
+          "hyperliquid",
+          "LINK"
+        ],
+        [
+          "hyperliquid",
+          "LTC"
+        ],
+        [
+          "hyperliquid",
+          "OP"
+        ],
+        [
+          "hyperliquid",
+          "SOL"
+        ],
+        [
+          "hyperliquid",
+          "UNI"
+        ],
+        [
+          "hyperliquid",
+          "XRP"
+        ],
+        [
+          "okx",
+          "ADA"
+        ],
+        [
+          "okx",
+          "ARB"
+        ],
+        [
+          "okx",
+          "ATOM"
+        ],
+        [
+          "okx",
+          "AVAX"
+        ],
+        [
+          "okx",
+          "BNB"
+        ],
+        [
+          "okx",
+          "BTC"
+        ],
+        [
+          "okx",
+          "DOGE"
+        ],
+        [
+          "okx",
+          "DOT"
+        ],
+        [
+          "okx",
+          "ETH"
+        ],
+        [
+          "okx",
+          "LINK"
+        ],
+        [
+          "okx",
+          "LTC"
+        ],
+        [
+          "okx",
+          "OP"
+        ],
+        [
+          "okx",
+          "SOL"
+        ],
+        [
+          "okx",
+          "UNI"
+        ],
+        [
+          "okx",
+          "XRP"
+        ]
+      ],
+      "scenario": "august_frozen_execution_5bps"
+    }
+  ],
+  "oracle_proxy_fixed_ledger_sensitivity": [
+    {
+      "policy": "original",
+      "oracle_proxy_multiplier": 0.99,
+      "funding_cash_adjustment": -0.0,
+      "net_pnl_fixed_trade_ledger": 0.0
+    },
+    {
+      "policy": "original",
+      "oracle_proxy_multiplier": 1.0,
+      "funding_cash_adjustment": 0.0,
+      "net_pnl_fixed_trade_ledger": 0.0
+    },
+    {
+      "policy": "original",
+      "oracle_proxy_multiplier": 1.01,
+      "funding_cash_adjustment": 0.0,
+      "net_pnl_fixed_trade_ledger": 0.0
+    },
+    {
+      "policy": "august_frozen",
+      "oracle_proxy_multiplier": 0.99,
+      "funding_cash_adjustment": -3.311746680148661,
+      "net_pnl_fixed_trade_ledger": -10704.768315635265
+    },
+    {
+      "policy": "august_frozen",
+      "oracle_proxy_multiplier": 1.0,
+      "funding_cash_adjustment": 0.0,
+      "net_pnl_fixed_trade_ledger": -10701.456568955116
+    },
+    {
+      "policy": "august_frozen",
+      "oracle_proxy_multiplier": 1.01,
+      "funding_cash_adjustment": 3.311746680148661,
+      "net_pnl_fixed_trade_ledger": -10698.144822274968
+    }
+  ],
+  "warmup": "Only September data; each venue/base requires two published past settlements. No prior-month backfill.",
+  "original": "Every 8h; enter above roundtrip fees +2bps; exit below0.5bps or48h. Equal base quantities, next-hour fills.",
+  "august_frozen": "Pre-existing comparison, not tuned on September: hourly top5; entry1bps/8h, minhold8h, exit below1/3bps or outside top5 or pair change, max48h.",
+  "signal": "Latest settled funding available >=5m before decision. Native rate *8/observed interval used once for ranking; future actual rates excluded.",
+  "execution": "Next hourly trade open plus adverse1/3/5bps per fill and taker fees; actual historical BBO unavailable.",
+  "funding_valuation": "Binance endpoint settlement mark; Bybit/OKX hourly mark open; Hyperliquid hourly trade open as explicitly estimated oracle-notional proxy.",
+  "limitations": [
+    "Hyperliquid oracle is absent. Funding amounts and net PnL are estimates, not exact real-account performance; raw rates and traded prices are actual.",
+    "Oracle sensitivity changes funding cash on the fixed3bps trade ledger; it does not rerun sizing or model dynamic oracle basis.",
+    "Same-hour candles close/high/low/volume are never used for signals or fills. Trade open is an execution proxy, not a bid/ask quote.",
+    "Universe completeness is known ex post; it defines this shared sample and is not a point-in-time universe construction.",
+    "Stablecoins assumed at parity; liquidation, margin fragmentation, order minimums, impact and transfers unmodelled.",
+    "Final exit uses September30 23:00 open; remaining last-hour events after exit are excluded.",
+    "Publication latency assumed5min; actual historical API receipt times unavailable. No annualized performance claim."
+  ]
+}

@@ -1,4 +1,8 @@
-# August funding-rate replay
+# Funding research
+
+The current [September four-venue strategy](september/README.md) runs on the frozen shared one-month dataset. [繁體中文九月說明](september/README.zh-TW.md).
+
+## Earlier August funding-rate replay
 
 [繁體中文：資料、策略及重現方式](README.zh-TW.md)
 

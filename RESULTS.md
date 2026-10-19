@@ -2,6 +2,23 @@
 
 Funding is reproduced from the included August replay inputs and code. The other tables are extracted from their included result workbooks. Each study has its own sample and assumptions.
 
+## Funding: September shared-data strategy
+
+Source: [results.json](funding/september/results.json), using `crypto-perpetuals-2026-09-v1` unchanged. [Methodology](funding/september/README.md) and [Traditional Chinese explanation](funding/september/README.zh-TW.md).
+
+| Policy | Trades | Funding estimate | Trade-price PnL | Execution penalty | Fees | Estimated net |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| original | 0 | $0.00 | $0.00 | $-0.00 | $-0.00 | $0.00 |
+| august_frozen | 387 | $333.16 | $421.47 | $-4,351.18 | $-7,104.90 | $-10,701.46 |
+
+Base scenario: 3 bps adverse execution penalty per fill plus taker fees, $100,000 initial capital. Hyperliquid funding notional uses the explicitly estimated trade-open oracle proxy.
+
+| Per-fill execution penalty | Original net | Lower-threshold comparison estimated net |
+| --- | ---: | ---: |
+| 1 bps | $0.00 | $-7,912.53 |
+| 3 bps | $0.00 | $-10,701.46 |
+| 5 bps | $0.00 | $-13,407.25 |
+
 ## Funding: August actual-settlement replay
 
 Source: [august_results.json](funding/august_results.json). The full [methodology](funding/README.md), [original-rule ledger](funding/august_original_trades.csv), and [August comparison ledger](funding/august_frozen_trades.csv) are included.

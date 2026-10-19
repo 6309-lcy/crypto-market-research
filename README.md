@@ -6,7 +6,7 @@ Research is organized into four topic directories. Each directory contains its P
 
 | Directory | Study | Included results |
 | --- | --- | --- |
-| [`funding/`](funding/) | Funding-rate differences across Binance, Bybit, OKX, and Hyperliquid | August actual-settlement replay, causal signals, and costed trade ledgers |
+| [`funding/`](funding/) | Funding-rate differences across Binance, Bybit, OKX, and Hyperliquid | September four-venue shared-data strategy, causal signals, and costed trade ledgers |
 | [`liquidity/`](liquidity/) | BTC order-book depth and stress across Binance, Bybit, and OKX | Slippage, recovery estimates, and resilience scores |
 | [`dex/`](dex/) | ETH/USDC and WBTC/USDC liquidity fragmentation | Pool concentration and routing-cost comparisons |
 | [`ghost/`](ghost/) | Large BTC liquidity levels and cancellation behaviour | Event labels, classification, and price-response analysis |
@@ -18,7 +18,8 @@ crypto-market-research/
 |-- README.md
 |-- RESULTS.md
 |-- requirements.txt
-|-- funding/       # August signals, actual settlements, and costed replay
+|-- datasets/      # Frozen September four-venue shared data
+|-- funding/       # September strategies and earlier funding studies
 |-- liquidity/     # Order-book depth, stress, and resilience
 |-- dex/           # Pool fragmentation and execution routing
 `-- ghost/         # Disappearing liquidity and price response
@@ -30,11 +31,14 @@ Each topic keeps its inputs and outputs together. File prefixes identify the stu
 
 Use [September 2026: one common four-venue dataset](datasets/2026-09/README.md) for new cross-venue comparisons. The UTC window is 1 September inclusive through 1 October exclusive. Its versioned manifest fixes the shared universe and data hashes; per-market coverage checks identify accepted inputs. Historical January–March and August studies remain separate samples.
 
+The [September strategy replay](funding/september/README.md) now uses this exact frozen dataset. The original rule makes **0 trades**; the separately predefined lower-threshold comparison makes **387 trades**, with estimated net PnL **−$10,701.46** at 3 bps adverse execution penalty per fill plus taker fees. Hyperliquid funding notional is an explicit oracle-price estimate.
+
 ## Results
 
-[RESULTS.md](RESULTS.md) links the reproducible August funding outputs and the other studies' result workbooks. PNG charts summarize the studies; CSV ledgers and workbooks retain detailed calculations and event records.
+[RESULTS.md](RESULTS.md) links the September shared-data strategy, earlier funding studies, and the other studies' result workbooks. PNG charts summarize the studies; CSV ledgers and workbooks retain detailed calculations and event records.
 
-- Funding: the original high-threshold rule takes **0 trades** on August data. The separate lower-threshold August comparison takes **109 trades** and returns **−$2,791.87** with 1 bp additional slippage per fill. See [methodology and reproduction](funding/README.md).
+- September funding: the original rule takes **0 trades**. The fixed lower-threshold comparison takes **387 trades**, with estimated net PnL **−$10,701.46** at 3 bps execution penalty per fill plus fees. See [the shared-data strategy](funding/september/README.md).
+- Earlier August funding: the original high-threshold rule takes **0 trades** on August data. The separate lower-threshold August comparison takes **109 trades** and returns **−$2,791.87** with 1 bp additional slippage per fill. See [methodology and reproduction](funding/README.md).
 - January–March funding: a separate [actual-data replay](funding/jan_mar/README.md) covers Binance/Bybit/OKX and 15 common coins. The original 22?23 bps entry thresholds produces **0 trades**; the strongest known lagged-settlement gap is **10.9289 bps**. Historical predicted-rate observations and Hyperliquid hourly price/oracle coverage remain unavailable in this replay.
 - Liquidity analysis: included workbook resilience scores are Binance 74.92, OKX 49.89, and Bybit 41.13. Scores depend on this sample and the implemented normalization.
 - DEX analysis: Uniswap v3 accounts for 94.17% of ETH/USDC pool TVL and 100% of WBTC/USDC pool TVL in the included pool snapshot. The included model estimates 0.08 bps ETH routing savings at $50,000.
@@ -42,11 +46,11 @@ Use [September 2026: one common four-venue dataset](datasets/2026-09/README.md) 
 
 ## Plots
 
-### August funding: actual settlements and execution costs
+### September funding: shared four-venue data
 
-![August actual-settlement funding replay: net equity and cost attribution](funding/august_backtest_results.png)
+![September shared-data funding strategies: estimated equity and cost attribution](funding/september/performance.png)
 
-Actual August observations generate signals; exchange settlement histories supply outcomes. The original rule makes no trades. The lower-threshold comparison loses $2,791.87 after observed spreads, assumed slippage and taker fees. The earlier January–March synthetic result has been superseded.
+The original rule stays flat. The pre-existing lower-threshold comparison earns an estimated $333.16 in funding but loses $10,701.46 after price PnL, execution penalties and fees. Read the [September methodology](funding/september/README.md) for causal signals and the missing-oracle valuation assumption. Earlier August and January–March studies remain linked separately.
 
 ### Order-book depth and slippage
 
@@ -73,8 +77,8 @@ Use Python 3.10 or newer. For an existing Conda environment:
 ```powershell
 conda activate aqa2
 python -m pip install -r requirements.txt
-python funding/august_backtest.py
-python -m unittest discover -s funding -p "test_august_backtest.py" -v
+python funding/september/backtest.py
+python -m unittest discover -s funding/september -p "test_backtest.py" -v
 python liquidity/liquidity_analysis.py
 python liquidity/liquidity_backtest.py
 python dex/dex_analysis.py
@@ -83,7 +87,7 @@ python ghost/ghost_analysis.py
 python ghost/ghost_backtest.py
 ```
 
-Each script reads and writes files beside itself. Funding runs offline from included timestamped August observations and actual settlements; detailed provenance, assumptions and refetch instructions are in [funding/README.md](funding/README.md). Running an analysis or backtest updates its topic's workbooks and charts. Run analyses before their associated backtests. `*_fetch_*.py` scripts fetch fresh public market data, and `*_ws_collector.py` scripts collect new live snapshots; these require network access and may be subject to exchange restrictions.
+Each script reads and writes files beside itself. The September funding strategy reads the frozen shared dataset offline; detailed timing, oracle-proxy assumptions and reproduction instructions are in [funding/september/README.md](funding/september/README.md). Running an analysis or backtest updates its topic's workbooks and charts. Run analyses before their associated backtests. `*_fetch_*.py` scripts fetch fresh public market data, and `*_ws_collector.py` scripts collect new live snapshots; these require network access and may be subject to exchange restrictions.
 
 ## Data and interpretation
 
