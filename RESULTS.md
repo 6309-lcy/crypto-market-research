@@ -15,6 +15,10 @@ Initial capital: $100,000. Additional adverse slippage: 1 bp per fill, on top of
 
 Slippage sensitivity for the August comparison: 0 bps → $-2,371.79, 1 bps → $-2,791.87, 3 bps → $-3,626.59.
 
+## Funding: January–March actual-data coverage
+
+[Methodology and reproducible results](funding/jan_mar/README.md) cover 24 January 08:00 through 31 March 16:00 UTC, 2026. Binance and Bybit have usable funding and price data for 15 common coins. The past-settled-rate signal reaches at most 10.0222 bps per eight hours, below the original 23 bps entry threshold: zero trades and zero PnL in all three execution-cost scenarios. This result does not reproduce the earlier synthetic four-venue portfolio.
+
 ## Liquidity: Resilience Scores
 
 Source: [liquidity_analysis_results.xlsx](liquidity/liquidity_analysis_results.xlsx), sheet `Resilience Scores`.

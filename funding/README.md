@@ -2,6 +2,8 @@
 
 [繁體中文：資料、策略及重現方式](README.zh-TW.md)
 
+[January–March actual-data replay](jan_mar/README.md): Binance/Bybit, 15 common coins, past settled-rate signals, original entry thresholds. This separate study returns zero trades and documents the limits of four-venue comparability.
+
 This study uses the live observations collected on 11–20 August 2026 and actual funding settlements downloaded from Binance, Bybit, OKX and Hyperliquid. All times are UTC. The earlier January–March synthetic-history simulation is superseded because it reused a terminal snapshot and mishandled Hyperliquid units.
 
 ## Reproduce

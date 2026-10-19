@@ -1,0 +1,1 @@
+base,long_exchange,short_exchange,decision_time,entry_time,quantity,long_entry_price,short_entry_price,long_entry_reference,short_entry_reference,entry_fees,funding_pnl,settlement_payments,exit_time,long_exit_price,short_exit_price,reference_price_pnl,execution_cost,price_pnl,fees,net_pnl,exit_reason
