@@ -20,6 +20,32 @@ All source files, datasets, charts, and result workbooks live in this single fol
 - DEX analysis: Uniswap v3 accounts for 94.17% of ETH/USDC pool TVL and 100% of WBTC/USDC pool TVL in the included pool snapshot. The included model estimates 0.08 bps ETH routing savings at $50,000.
 - Ghost-level backtest: 13,759 classified events, 53.1% signal win rate, and mean signal PnL of 0.38 bps before any unmodelled execution costs. Labels infer behaviour from public snapshots; participant identities and intent are unobserved.
 
+## Plots
+
+### Funding strategy simulation
+
+![Funding strategy simulation: backtest performance and trade outcomes](funding_backtest_results.png)
+
+Fee-aware funding strategy results using observed Binance history and simulated histories for Bybit, OKX, and Hyperliquid (seed 42). The simulated net PnL is $5,195.67 across 84 trades.
+
+### Order-book depth and slippage
+
+![BTC order-book depth and estimated slippage across Binance, Bybit, and OKX](liquidity_depth_slippage_comparison.png)
+
+Compare visible BTC liquidity and estimated execution costs across the three exchanges. Results reflect the collected snapshots and the trade-size assumptions in `liquidity_analysis.py`.
+
+### DEX routing comparison
+
+![Estimated execution costs for single-venue and optimized DEX routing](dex_routing_comparison.png)
+
+Compare modeled routing costs for ETH/USDC and WBTC/USDC. Estimates depend on the included pool snapshot and the liquidity assumptions in `dex_analysis.py`.
+
+### Price response around ghost events
+
+![Observed price response following classified ghost-liquidity events](ghost_price_after_events.png)
+
+Price-response analysis around disappearing large liquidity levels. Snapshot-based labels describe observed order-book behaviour; account identities and intent are unobserved.
+
 ## Run locally
 
 Use Python 3.10 or newer. For an existing Conda environment:
