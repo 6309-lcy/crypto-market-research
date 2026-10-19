@@ -1,0 +1,239 @@
+{
+  "venue": "Bybit",
+  "symbol": "BTCUSDT",
+  "market": "linear perpetual",
+  "interval": {
+    "start_ms_inclusive": 1788220800000,
+    "end_ms_exclusive": 1788307200000,
+    "start_utc": "2026-09-01T00:00:00Z",
+    "end_utc": "2026-09-02T00:00:00Z"
+  },
+  "run_started_utc": "2026-10-19T11:27:02.775687+00:00",
+  "script_sha256": "44acca391e8470c0945a77fe639d029c7908bb1ce92dc310c6bc20b677bad69d",
+  "semantics_reference": "https://bybit-exchange.github.io/docs/v5/websocket/public/orderbook",
+  "disk_free_bytes_before_download": 67428630528,
+  "sources": {
+    "book": {
+      "url": "https://quote-saver.bycsi.com/orderbook/linear/BTCUSDT/2026-09-01_BTCUSDT_ob200.data.zip",
+      "bytes": 180929446,
+      "sha256": "6fdc870a8b66a32fd44c245ddec06850f933233ea0ad0feee585b89d07907f6e",
+      "etag": "\"f4e676f297321391c3c4c2fe8576cb85\"",
+      "last_modified": "Wed, 02 Sep 2026 00:04:17 GMT",
+      "checked_utc": "2026-10-19T11:27:02.780314+00:00",
+      "cache_reused": true,
+      "download_started_utc": "2026-10-19T11:21:59.229734+00:00",
+      "download_completed_utc": "2026-10-19T11:22:42.770970+00:00"
+    },
+    "trades": {
+      "url": "https://public.bybit.com/trading/BTCUSDT/BTCUSDT2026-09-01.csv.gz",
+      "bytes": 70145746,
+      "sha256": "a321d10bffc3f6130c2e76609d58988dafa3898538f18fcabf7567891f00296e",
+      "etag": "\"ea123befcb4badd17ee241791b4183b2-9\"",
+      "last_modified": "Wed, 02 Sep 2026 01:12:41 GMT",
+      "checked_utc": "2026-10-19T11:28:10.890087+00:00",
+      "cache_reused": true,
+      "download_started_utc": "2026-10-19T11:23:45.870709+00:00",
+      "download_completed_utc": "2026-10-19T11:24:15.417218+00:00"
+    }
+  },
+  "limitations": [
+    "Free public market archives only; no private account data or paid services.",
+    "Exchange event/publication timestamps are not local receipt timestamps.",
+    "Price-level L2 and public trades cannot establish order queue position or exact maker fills.",
+    "Bybit public books exclude RPI orders; RPI trades are preserved separately and need not match displayed liquidity.",
+    "Historical account fees, latency and order eligibility are unverified; no net execution PnL is claimed.",
+    "SHA256 identifies downloaded bytes, not an independently published source checksum.",
+    "Minute coverage and monotonic identifiers do not prove that every exchange event was archived."
+  ],
+  "book": {
+    "counters": {
+      "invalid_records": 0,
+      "duplicate_prices_within_side": 0,
+      "delta_deletes_absent": 0,
+      "deltas_before_snapshot": 0,
+      "records_with_cts": 863932,
+      "cts_after_ts": 0,
+      "lines": 863932,
+      "snapshots": 2,
+      "duplicate_u_seq": 1,
+      "reconstruction_resets": 2,
+      "u_one_service_resets": 0,
+      "max_bid_levels": 200,
+      "max_ask_levels": 200,
+      "empty_books": 0,
+      "crossed_books": 0,
+      "locked_books": 0,
+      "deltas": 863930,
+      "u_equal": 1,
+      "u_nonunit_increases": 0,
+      "u_regressions": 0,
+      "seq_equal": 1,
+      "seq_regressions": 0,
+      "delta_u_regressions": 0,
+      "delta_seq_regressions": 0,
+      "delta_inserts": 10761817,
+      "delta_updates": 27087292,
+      "zero_size_levels": 10761817,
+      "delta_deletes_existing": 10761817
+    },
+    "coverage": {
+      "in_day_records": 863930,
+      "outside_day": {
+        "at_or_after_end": 2
+      },
+      "first_ts_ms": 1788220800129.0,
+      "last_ts_ms": 1788307199929.0,
+      "minutes_covered": 1440,
+      "missing_minute_offsets": [],
+      "longest_gap_including_day_edges_ms": 299.0,
+      "longest_gap_start_ms": 1788227210029.0,
+      "longest_gap_end_ms": 1788227210328.0,
+      "timestamp_regressions": 0,
+      "equal_adjacent_timestamps": 0
+    },
+    "examples": {
+      "first": {
+        "type": "snapshot",
+        "ts": 1788220800129,
+        "cts": 1788220800125,
+        "u": 34096958,
+        "seq": 802557433780,
+        "bid_updates": 200,
+        "ask_updates": 200,
+        "first_bid_pair": [
+          [
+            "78541.70",
+            "3.983"
+          ]
+        ],
+        "first_ask_pair": [
+          [
+            "78541.80",
+            "11.837"
+          ]
+        ]
+      },
+      "last": {
+        "type": "snapshot",
+        "ts": 1788307200128,
+        "cts": 1788307200027,
+        "u": 34960888,
+        "seq": 803337281996,
+        "bid_updates": 200,
+        "ask_updates": 200,
+        "first_bid_pair": [
+          [
+            "77392.60",
+            "8.257"
+          ]
+        ],
+        "first_ask_pair": [
+          [
+            "77392.70",
+            "1.431"
+          ]
+        ]
+      }
+    },
+    "errors": [],
+    "duplicate_identifier_examples": [
+      {
+        "ts": 1788307200128,
+        "type": "snapshot",
+        "u": 34960888,
+        "seq": 803337281996,
+        "inside_day": false
+      }
+    ],
+    "zip_members": [
+      {
+        "name": "2026-09-01_BTCUSDT_ob200.data",
+        "uncompressed_bytes": 1112626318,
+        "compressed_bytes": 180929256,
+        "crc32": "993b4a60"
+      }
+    ],
+    "counter_scope": "All archive records; minute summary and coverage use only the requested UTC interval.",
+    "continuity_semantics": "u increases need not be one. No missing-message count is inferred from nonunit u or seq increases. Snapshots replace both sides; u=1 signals a service reset. Equal/regressing identifiers are counted; monotonic identifiers cannot prove archive completeness.",
+    "reconstruction": "Price levels use consistent float conversion of archive decimal strings; zero sizes delete, positive sizes insert/replace. Every archive record is replayed, including any outside the requested interval. No depth truncation is imposed."
+  },
+  "trades": {
+    "columns": [
+      "timestamp",
+      "symbol",
+      "side",
+      "size",
+      "price",
+      "tickDirection",
+      "trdMatchID",
+      "grossValue",
+      "homeNotional",
+      "foreignNotional",
+      "RPI"
+    ],
+    "counters": {
+      "invalid_records": 0,
+      "rows": 2017359,
+      "duplicate_trade_ids": 0,
+      "Sell": 1011025,
+      "Buy": 1006334
+    },
+    "coverage": {
+      "in_day_records": 2017359,
+      "outside_day": {},
+      "first_ts_ms": 1788220800116.9,
+      "last_ts_ms": 1788307199755.9,
+      "minutes_covered": 1440,
+      "missing_minute_offsets": [],
+      "longest_gap_including_day_edges_ms": 18623.7,
+      "longest_gap_start_ms": 1788238050481.1,
+      "longest_gap_end_ms": 1788238069104.8,
+      "timestamp_regressions": 0,
+      "equal_adjacent_timestamps": 1486613
+    },
+    "timestamp_units": {
+      "seconds": 2017359
+    },
+    "rpi_flag_counts": {
+      "0": 2017359,
+      "1": 0
+    },
+    "examples": {
+      "first": {
+        "timestamp": "1788220800.1169",
+        "symbol": "BTCUSDT",
+        "side": "Sell",
+        "size": "0.001",
+        "price": "78541.70",
+        "tickDirection": "MinusTick",
+        "RPI": "0"
+      },
+      "last": {
+        "timestamp": "1788307199.7559",
+        "symbol": "BTCUSDT",
+        "side": "Sell",
+        "size": "0.002",
+        "price": "77392.60",
+        "tickDirection": "ZeroPlusTick",
+        "RPI": "0"
+      }
+    },
+    "errors": [],
+    "rpi_policy": "All rows, including RPI=1, are retained and counted separately; raw archive preserves original flags. Aggregates do not deduplicate."
+  },
+  "minute_summary": {
+    "file": "bybit_minutes.csv",
+    "rows": 1440,
+    "sha256": "a08402dc170b39ee15069d9c0bcdaba6137ea873317d842448d4d0f09befc5c8",
+    "numeric_aggregation": "Float totals; event timestamps classified using integer microseconds."
+  },
+  "validation": {
+    "status": "completed_with_findings",
+    "findings": [
+      "book: duplicate_u_seq"
+    ],
+    "all_records_streamed": true,
+    "zip_crc_and_gzip_crc": "Checked by Python archive readers on full streams"
+  },
+  "run_completed_utc": "2026-10-19T11:28:40.098227+00:00"
+}

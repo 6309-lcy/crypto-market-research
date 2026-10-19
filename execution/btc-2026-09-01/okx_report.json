@@ -1,0 +1,225 @@
+{
+  "instrument": "BTC-USDT-SWAP",
+  "start_ms_inclusive": 1788220800000,
+  "end_ms_exclusive": 1788307200000,
+  "started_utc": "2026-10-19T11:29:44.639573+00:00",
+  "sources": [
+    {
+      "kind": "books",
+      "url": "https://static.okx.com/cdn/okx/match/orderbook/pro/L2/400lv/daily/20260901/BTC-USDT-SWAP-L2orderbook-400lv-2026-09-01.tar.gz",
+      "file": "BTC-USDT-SWAP-L2orderbook-400lv-2026-09-01.tar.gz",
+      "started_utc": "2026-10-19T11:29:44.244944+00:00",
+      "attempts": [],
+      "cache_hit": true,
+      "bytes": 378586403,
+      "sha256": "0578d114ceee62b2997c1a8b1b52a63fc046ab3a7235c74ffe5c3b26d0f41b80",
+      "finished_utc": "2026-10-19T11:29:44.570719+00:00",
+      "elapsed_seconds": 0.326,
+      "original_download": {
+        "kind": "books",
+        "url": "https://static.okx.com/cdn/okx/match/orderbook/pro/L2/400lv/daily/20260901/BTC-USDT-SWAP-L2orderbook-400lv-2026-09-01.tar.gz",
+        "file": "BTC-USDT-SWAP-L2orderbook-400lv-2026-09-01.tar.gz",
+        "started_utc": "2026-10-19T11:20:00.093337+00:00",
+        "attempts": [],
+        "content_length": 378586403,
+        "last_modified": "Wed, 02 Sep 2026 00:03:56 GMT",
+        "cache_hit": false,
+        "bytes": 378586403,
+        "sha256": "0578d114ceee62b2997c1a8b1b52a63fc046ab3a7235c74ffe5c3b26d0f41b80",
+        "finished_utc": "2026-10-19T11:21:24.355589+00:00",
+        "elapsed_seconds": 84.262
+      },
+      "cache_sha256_verified": true,
+      "entries": [
+        {
+          "name": "BTC-USDT-SWAP-L2orderbook-400lv-2026-09-01.data",
+          "uncompressed_bytes": 2382103884
+        }
+      ],
+      "complete_archive_read": true
+    },
+    {
+      "kind": "trades",
+      "url": "https://static.okx.com/cdn/okex/traderecords/trades/daily/20260901/BTC-USDT-SWAP-trades-2026-09-01.zip?v=1001",
+      "file": "BTC-USDT-SWAP-trades-2026-09-01.zip",
+      "started_utc": "2026-10-19T11:29:44.583164+00:00",
+      "attempts": [],
+      "cache_hit": true,
+      "bytes": 13953306,
+      "sha256": "e6db29a31cffa752550c5a9dc2b33974caeeefe284847036d25be2d3a00d681c",
+      "finished_utc": "2026-10-19T11:29:44.596519+00:00",
+      "elapsed_seconds": 0.013,
+      "original_download": {
+        "kind": "trades",
+        "url": "https://static.okx.com/cdn/okex/traderecords/trades/daily/20260901/BTC-USDT-SWAP-trades-2026-09-01.zip?v=1001",
+        "file": "BTC-USDT-SWAP-trades-2026-09-01.zip",
+        "started_utc": "2026-10-19T11:21:24.355748+00:00",
+        "attempts": [],
+        "content_length": 13953306,
+        "last_modified": "Tue, 01 Sep 2026 23:27:22 GMT",
+        "cache_hit": false,
+        "bytes": 13953306,
+        "sha256": "e6db29a31cffa752550c5a9dc2b33974caeeefe284847036d25be2d3a00d681c",
+        "finished_utc": "2026-10-19T11:21:42.146248+00:00",
+        "elapsed_seconds": 17.791
+      },
+      "cache_sha256_verified": true,
+      "entries": [
+        {
+          "name": "BTC-USDT-SWAP-trades-2026-09-01.csv",
+          "uncompressed_bytes": 141144063
+        }
+      ],
+      "first_timestamp_ms": 1788192000021,
+      "last_timestamp_ms": 1788278399864,
+      "validation": {
+        "records": 2373050,
+        "outside_window": 650743
+      },
+      "complete_archive_read": true
+    },
+    {
+      "kind": "trades",
+      "url": "https://static.okx.com/cdn/okex/traderecords/trades/daily/20260902/BTC-USDT-SWAP-trades-2026-09-02.zip?v=1001",
+      "file": "BTC-USDT-SWAP-trades-2026-09-02.zip",
+      "started_utc": "2026-10-19T11:29:44.611846+00:00",
+      "attempts": [],
+      "cache_hit": true,
+      "bytes": 16918785,
+      "sha256": "ea361b4b909ae3f170c16c66eaf7ce1277d965c0246365130525b8311e9cbf5e",
+      "finished_utc": "2026-10-19T11:29:44.627483+00:00",
+      "elapsed_seconds": 0.016,
+      "original_download": {
+        "kind": "trades",
+        "url": "https://static.okx.com/cdn/okex/traderecords/trades/daily/20260902/BTC-USDT-SWAP-trades-2026-09-02.zip?v=1001",
+        "file": "BTC-USDT-SWAP-trades-2026-09-02.zip",
+        "started_utc": "2026-10-19T11:21:42.146353+00:00",
+        "attempts": [],
+        "content_length": 16918785,
+        "last_modified": "Wed, 02 Sep 2026 23:14:18 GMT",
+        "cache_hit": false,
+        "bytes": 16918785,
+        "sha256": "ea361b4b909ae3f170c16c66eaf7ce1277d965c0246365130525b8311e9cbf5e",
+        "finished_utc": "2026-10-19T11:21:45.580005+00:00",
+        "elapsed_seconds": 3.434
+      },
+      "cache_sha256_verified": true,
+      "entries": [
+        {
+          "name": "BTC-USDT-SWAP-trades-2026-09-02.csv",
+          "uncompressed_bytes": 171903285
+        }
+      ],
+      "first_timestamp_ms": 1788278400504,
+      "last_timestamp_ms": 1788364799660,
+      "validation": {
+        "records": 2890141,
+        "outside_window": 1951751
+      },
+      "complete_archive_read": true
+    }
+  ],
+  "quantity": {
+    "native_unit": "contracts",
+    "conversion_applied": false,
+    "current_ctVal_btc_reference_only": "0.01",
+    "historical_ctVal_verified": false
+  },
+  "failures": [],
+  "limitations": [
+    "Archive supplies no seqId/prevSeqId; exact sequence continuity and sequence gap/reset checks unavailable. Timestamp gaps are measured without inferring packet loss.",
+    "Archive supplies no checksum; signed CRC32 validation unavailable."
+  ],
+  "schemas": {
+    "BTC-USDT-SWAP-trades-2026-09-01.csv": {
+      "fields": [
+        "instrument_name",
+        "trade_id",
+        "side",
+        "price",
+        "size",
+        "created_time",
+        "source"
+      ]
+    },
+    "BTC-USDT-SWAP-trades-2026-09-02.csv": {
+      "fields": [
+        "instrument_name",
+        "trade_id",
+        "side",
+        "price",
+        "size",
+        "created_time",
+        "source"
+      ]
+    },
+    "books": {
+      "record_key_shapes": {
+        "action,asks,bids,instId,ts": 5858458
+      },
+      "actions": {
+        "snapshot": 96,
+        "update": 5858362
+      },
+      "level_format": [
+        "raw_price",
+        "raw_quantity_contracts",
+        "order_count"
+      ],
+      "snapshot_replaces_book": true,
+      "zero_quantity_deletes_level": true
+    }
+  },
+  "books": {
+    "records_in_window": 5858458,
+    "first_ms": 1788220800006,
+    "last_ms": 1788307199997,
+    "first_utc": "2026-09-01T00:00:00.006000+00:00",
+    "last_utc": "2026-09-01T23:59:59.997000+00:00",
+    "minutes_present": 1440,
+    "missing_minute_indices": [],
+    "longest_missing_minute_run": 0,
+    "out_of_order_records": 0,
+    "longest_event_or_boundary_gap_ms": 537
+  },
+  "trades": {
+    "records_in_window": 2660697,
+    "first_ms": 1788220800007,
+    "last_ms": 1788307199914,
+    "first_utc": "2026-09-01T00:00:00.007000+00:00",
+    "last_utc": "2026-09-01T23:59:59.914000+00:00",
+    "minutes_present": 1440,
+    "missing_minute_indices": [],
+    "longest_missing_minute_run": 0,
+    "out_of_order_records": 0,
+    "longest_event_or_boundary_gap_ms": 9729
+  },
+  "counts": {
+    "book_lines": 5858458,
+    "book_records_total": 5858458,
+    "book_snapshot_resets": 95,
+    "trade_duplicates": 0,
+    "trade_invalid_records": 0,
+    "trade_missing_id": 0,
+    "book_duplicates": 0,
+    "book_invalid_records": 0,
+    "book_updates_without_snapshot": 0,
+    "book_seq_present": 0,
+    "book_prev_seq_tests": 0,
+    "book_sequence_gaps": 0,
+    "book_sequence_resets": 0,
+    "book_duplicate_sequences": 0,
+    "book_ignorable_heartbeats": 0,
+    "book_checksum_tests": 0,
+    "book_checksum_failures": 0,
+    "book_crossed_or_locked": 0,
+    "book_empty_side": 0
+  },
+  "trade_book_matching": {
+    "rule": "Latest book timestamp <= trade timestamp; all book updates at equal timestamp applied before matching",
+    "matched": 2660697,
+    "unmatched": 0
+  },
+  "status": "passed_with_limitations",
+  "finished_utc": "2026-10-19T11:33:01.818639+00:00"
+}

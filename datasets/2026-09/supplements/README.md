@@ -57,6 +57,10 @@ A practical next execution study is **Bybit–OKX, one coin over matched days**,
 
 Official references: [Bybit historical data](https://www.bybit.com/derivatives/en/history-data), [OKX historical market-data API](https://www.okx.com/docs-v5/en/#public-data-rest-api-get-historical-market-data), [Binance public-data documentation](https://github.com/binance/binance-public-data).
 
+## Free matched execution pilot
+
+The [BTC September 1 Bybit/OKX acquisition](../../../execution/btc-2026-09-01/README.md) downloads and validates accessible free books and trades in a matched UTC window. Raw archives stay in the local cache; sequence/coverage diagnostics and source hashes are published. Its reports determine whether an event replay is ready; source availability alone is not sufficient.
+
 ## Current readiness
 
 The public common dataset supports a carefully labeled **hourly price-proxy, lagged-settlement funding study**. Exact funding-receipt replication, BBO execution claims and maker-fill claims remain unsupported until the identified inputs are acquired and validated. Detailed source access probes are recorded in `source_access.json` when available.

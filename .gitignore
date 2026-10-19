@@ -8,3 +8,8 @@ __pycache__/
 *.log
 .venv/
 .ipynb_checkpoints/
+market_data_cache/
+*.tar.gz
+*.csv.gz
+*.data
+*.partial

@@ -33,6 +33,10 @@ Use [September 2026: one common four-venue dataset](datasets/2026-09/README.md) 
 
 The [September strategy replay](funding/september/README.md) now uses this exact frozen dataset. The original rule makes **0 trades**; the separately predefined lower-threshold comparison makes **387 trades**, with estimated net PnL **−$10,701.46** at 3 bps adverse execution penalty per fill plus taker fees. Hyperliquid funding notional is an explicit oracle-price estimate.
 
+## Free execution-data pilot
+
+[Bybit/OKX BTC, September 1 UTC](execution/btc-2026-09-01/README.md) adds freely downloaded price-level books and trades. Both markets cover all 1,440 minutes. Raw archives stay local; reproducible collectors, SHA-256 source hashes and validation reports are public. The OKX archive lacks sequence/checksum fields, and hypothetical maker queue position remains a modeling assumption.
+
 ## Results
 
 [RESULTS.md](RESULTS.md) links the September shared-data strategy, earlier funding studies, and the other studies' result workbooks. PNG charts summarize the studies; CSV ledgers and workbooks retain detailed calculations and event records.

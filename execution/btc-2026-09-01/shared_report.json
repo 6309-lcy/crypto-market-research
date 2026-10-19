@@ -1,0 +1,23 @@
+{
+  "window_start_inclusive": "2026-09-01T00:00:00Z",
+  "window_end_exclusive": "2026-09-02T00:00:00Z",
+  "markets": [
+    "Bybit BTCUSDT",
+    "OKX BTC-USDT-SWAP"
+  ],
+  "shared_minute_grid_rows": 1440,
+  "input_sha256": {
+    "bybit_report.json": "b97b59151fe38bc47b4ba67730bcac671479caa58f9966c8b53c458b8a0be850",
+    "bybit_minutes.csv": "a08402dc170b39ee15069d9c0bcdaba6137ea873317d842448d4d0f09befc5c8",
+    "okx_report.json": "0b44d9bb04abf4775a39fb3186b2fe14befdef10282eab601b88d540993272b1",
+    "okx_minutes.csv": "5789669aeaafb25be7ba573ac7de756014230c0f90d731348f3039c8dd0b11d9"
+  },
+  "scripts_sha256": {
+    "bybit_collect.py": "44acca391e8470c0945a77fe639d029c7908bb1ce92dc310c6bc20b677bad69d",
+    "okx_collect.py": "acdab3816750a1476fe7aed9b4a8a91ff44b0985f3cf725f7970dc6968ef02fb",
+    "summarize.py": "d48a5ad2f193ab4f3c40378bbbf997ea42b8a4f0f752185d08a2d92305718dba"
+  },
+  "cache_policy": "Original archives stay outside the public repository; archive hashes/URLs in each report.",
+  "interpretation": "A common minute grid is not proof of uninterrupted sequence correctness or maker fills. Read venue reports before replay.",
+  "performance_claim": false
+}
