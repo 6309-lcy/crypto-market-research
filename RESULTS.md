@@ -1,35 +1,19 @@
 # Research results
 
-These tables are extracted from the included result workbooks. Each study has its own sample and assumptions.
+Funding is reproduced from the included August replay inputs and code. The other tables are extracted from their included result workbooks. Each study has its own sample and assumptions.
 
-## Funding: Performance Metrics
+## Funding: August actual-settlement replay
 
-Source: [funding_backtest_results.xlsx](funding/funding_backtest_results.xlsx), sheet `Performance Metrics`.
+Source: [august_results.json](funding/august_results.json). The full [methodology](funding/README.md), [original-rule ledger](funding/august_original_trades.csv), and [August comparison ledger](funding/august_frozen_trades.csv) are included.
 
-| Metric | Value |
-| --- | --- |
-| Total Trades | 84 |
-| Win Rate (%) | 70.2 |
-| Total Gross PnL ($) | 6578.67 |
-| Total Fees ($) | 1383.00 |
-| Total Net PnL ($) | 5195.67 |
-| Avg Net PnL/Trade ($) | 61.85 |
-| Avg Net PnL/Trade (%) | 0.6185 |
-| Max Drawdown ($) | 90.78 |
-| Avg Holding Periods | 4.2 |
-| Unique Coins Traded | 9 |
-| Position Size (USD/leg) | $10,000 |
-| Historical Data Basis | Binance actual history; other exchanges simulated from snapshot offsets |
-| Random Seed | 42 |
+| Strategy | Trades | Funding | Mid-price PnL | Spread + slippage | Fees | Net |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| original | 0 | $0.00 | $0.00 | $-0.00 | $-0.00 | $0.00 |
+| august_frozen | 109 | $123.21 | $370.75 | $-1,177.78 | $-2,108.06 | $-2,791.87 |
 
-## Funding: Backtest Notes
+Initial capital: $100,000. Additional adverse slippage: 1 bp per fill, on top of observed bid/ask spreads and taker fees. Evaluation decisions: 13 August 00:00 to 20 August 05:00 UTC, 2026.
 
-Source: [funding_backtest_results.xlsx](funding/funding_backtest_results.xlsx), sheet `Backtest Notes`.
-
-| item | detail |
-| --- | --- |
-| Methodology note | Only Binance funding history is real. Bybit, OKX, and Hyperliquid histories are simulated from current cross-exchange offsets plus fixed-seed noise. |
-| Interpretation note | Use the backtest to compare strategy behaviour under consistent assumptions, not as a prediction of live future returns. |
+Slippage sensitivity for the August comparison: 0 bps → $-2,371.79, 1 bps → $-2,791.87, 3 bps → $-3,626.59.
 
 ## Liquidity: Resilience Scores
 
