@@ -7,6 +7,7 @@ Execution uses the next hourly trade OPEN plus an explicit cost scenario.
 from __future__ import annotations
 from dataclasses import dataclass, asdict
 import argparse
+from itertools import combinations
 import hashlib
 import json
 from pathlib import Path
@@ -19,7 +20,7 @@ import matplotlib.pyplot as plt
 HERE=Path(__file__).resolve().parent
 START=pd.Timestamp('2026-01-24T08:00:00Z')
 END=pd.Timestamp('2026-03-31T16:00:00Z')
-FEES={'binance':5.0,'bybit':5.5}
+FEES={'binance':5.0,'bybit':5.5,'okx':5.0}
 
 @dataclass(frozen=True)
 class Config:
@@ -58,16 +59,20 @@ def rank_pairs(rates,decision,config):
     if rates.empty:return []
     result=[]
     for base,g in rates.groupby('base',sort=True):
-        if not {'binance','bybit'}.issubset(set(g.exchange)):continue
         g=g.set_index('exchange')
-        a,b=g.loc['binance'],g.loc['bybit']
-        low,high=(a,b) if a.normalized_8h<=b.normalized_8h else (b,a)
-        edge=(high.normalized_8h-low.normalized_8h)*1e4
-        threshold=2*(FEES[low.name]+FEES[high.name])+config.entry_buffer_bps
-        result.append(dict(base=base,long_exchange=low.name,short_exchange=high.name,
-            decision_time=decision,long_signal_time=low.source_time,short_signal_time=high.source_time,
-            long_available_time=low.available_time,short_available_time=high.available_time,
-            edge_8h_bps=float(edge),entry_threshold_bps=threshold,threshold_passed=bool(edge>threshold)))
+        best=None
+        for ea,eb in combinations(sorted(g.index),2):
+            a,b=g.loc[ea],g.loc[eb]
+            low,high=(a,b) if a.normalized_8h<=b.normalized_8h else (b,a)
+            edge=(high.normalized_8h-low.normalized_8h)*1e4
+            threshold=2*(FEES[low.name]+FEES[high.name])+config.entry_buffer_bps
+            item=dict(base=base,long_exchange=low.name,short_exchange=high.name,
+                decision_time=decision,long_signal_time=low.source_time,short_signal_time=high.source_time,
+                long_available_time=low.available_time,short_available_time=high.available_time,
+                edge_8h_bps=float(edge),entry_threshold_bps=threshold,threshold_passed=bool(edge>threshold))
+            # Prefer the largest qualifying gap, or retain the largest diagnostic gap.
+            if best is None or (item['threshold_passed'],edge)>(best['threshold_passed'],best['edge_8h_bps']):best=item
+        if best:result.append(best)
     return sorted(result,key=lambda r:(-r['edge_8h_bps'],r['base']))
 
 
@@ -81,9 +86,10 @@ def validate_coverage(funding,prices,start=START,end=END):
             raise ValueError(f'Incomplete hourly prices: {exchange}/{base}')
         f=funding[(funding.exchange==exchange)&(funding.base==base)].sort_values('settlement_time')
         gaps=f.settlement_time.diff().dt.total_seconds().dropna()/3600
-        if len(f)<3 or not ((gaps-8).abs()<2/3600).all():
-            raise ValueError(f'Unverified or missing eight-hour settlements: {exchange}/{base}')
+        if len(f)<3 or not gaps.map(lambda h:min(abs(h-x) for x in (1,2,4,8))<2/3600).all():
+            raise ValueError(f'Unverified or missing settlements: {exchange}/{base}')
         boundary=f.settlement_time.dt.floor('min')
+        # Eight-hour boundaries are common to the observed 1/2/4/8h schedules.
         required=pd.date_range(start,end,freq='8h')
         if not set(required).issubset(set(boundary)):
             raise ValueError(f'Missing settlement boundary: {exchange}/{base}')
@@ -232,13 +238,13 @@ def main(directory=HERE):
             for name,df in [('trades',ledger),('equity',curve),('decisions',decisions),('payments',payments)]:
                 df.to_csv(directory/f'{name}.csv',index=False,lineterminator='\n')
         print(f'Execution penalty {cost:g}bps: {summary["trades"]} trades, net ${summary["net_pnl"]:.2f}',flush=True)
-    report=dict(model='Two-venue lagged-settlement funding strategy; original thresholds with explicit public-data limitations.',
+    report=dict(model='Actual-data lagged-settlement funding strategy; original thresholds with explicit public-data limitations.',
         venues=list(FEES),fees_bps=FEES,results=summaries,
         input_sha256={name:hashlib.sha256((directory/name).read_bytes()).hexdigest() for name in ['funding.csv','prices.csv']},
         code_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         signal='Latest actual settlement available at least 5m before decision; interval inferred from two past events. No historical predicted-rate archive.',
         execution='Next hourly traded-price open, one hour after each decision, plus 1/3/5bps adverse penalty per fill; no historical BBO claim.',
-        limitations=['Binance and Bybit only. This does not reproduce the earlier four-venue synthetic-history portfolio.',
+        limitations=['Binance, Bybit and OKX actual data. Hyperliquid price/oracle history is absent; the earlier four-venue portfolio is not reproduced.',
             'Candle opens are price proxies; spread/impact modeled by sensitivity, not observed fills.',
             'Bybit funding valuation uses hourly mark open; Binance uses the endpoint mark when supplied.',
             'Publication delay is assumed at 5m; historical response receipt times are unavailable.',
@@ -247,7 +253,7 @@ def main(directory=HERE):
     fig,axes=plt.subplots(3,1,figsize=(12,11),layout='constrained')
     for cost,curve in curves.items():
         axes[0].plot(pd.to_datetime(curve.time),curve.equity-100000,label=f'{cost:g} bps per-fill penalty')
-    axes[0].set(title='Jan 24-Mar 31, 2026: actual funding, Binance + Bybit',ylabel='Net PnL (USD)')
+    axes[0].set(title='Jan 24-Mar 31, 2026: actual funding, Binance + Bybit + OKX',ylabel='Net PnL (USD)')
     axes[0].legend();axes[0].grid(alpha=.2)
     s=summaries[1]
     axes[1].bar(['Funding','Reference-price PnL','Execution penalty','Fees','Net'],
@@ -258,8 +264,8 @@ def main(directory=HERE):
     if not decisions.empty:
         strongest=decisions.groupby('decision_time').edge_8h_bps.max()
         axes[2].plot(strongest.index,strongest.values,label='Largest known 8h gap across 15 coins',color='#2b8c7e')
-        axes[2].axhline(23,color='#b65c60',linestyle='--',label='Entry threshold: 23 bps')
-        axes[2].set(title='Why the original rule stays flat',ylabel='8h-equivalent basis points')
+        axes[2].axhline(22,color='#b65c60',linestyle='--',label='Minimum entry threshold: 22 bps (pair dependent)')
+        axes[2].set(title='Observed funding gaps versus entry threshold',ylabel='8h-equivalent basis points')
         axes[2].legend();axes[2].grid(alpha=.2)
     fig.savefig(directory/'performance.png',dpi=150,metadata={'Software':'Research'})
     plt.close(fig)

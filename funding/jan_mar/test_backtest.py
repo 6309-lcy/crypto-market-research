@@ -47,6 +47,18 @@ def run_fixture(funding, prices, config=None):
 
 
 class SignalTests(unittest.TestCase):
+    def test_three_venue_pair_selection_uses_largest_qualifying_gap(self):
+        funding,_=fixture()
+        extra=funding[funding.exchange=='bybit'].copy()
+        extra['exchange']='okx'
+        extra['funding_rate']=.006
+        rates=bt.known_rates(pd.concat([funding,extra],ignore_index=True),START,bt.Config())
+        ranked=bt.rank_pairs(rates,START,bt.Config())
+        self.assertEqual(ranked[0]['long_exchange'],'binance')
+        self.assertEqual(ranked[0]['short_exchange'],'okx')
+        self.assertAlmostEqual(ranked[0]['entry_threshold_bps'],22)
+        self.assertTrue(ranked[0]['threshold_passed'])
+
     def test_five_minute_publication_boundary(self):
         funding, _ = fixture()
         for minutes, expected_hour in ((4, -8), (5, 0)):

@@ -17,7 +17,7 @@ Slippage sensitivity for the August comparison: 0 bps → $-2,371.79, 1 bps → 
 
 ## Funding: January–March actual-data coverage
 
-[Methodology and reproducible results](funding/jan_mar/README.md) cover 24 January 08:00 through 31 March 16:00 UTC, 2026. Binance and Bybit have usable funding and price data for 15 common coins. The past-settled-rate signal reaches at most 10.0222 bps per eight hours, below the original 23 bps entry threshold: zero trades and zero PnL in all three execution-cost scenarios. This result does not reproduce the earlier synthetic four-venue portfolio.
+[Methodology and reproducible results](funding/jan_mar/README.md) cover 24 January 08:00 through 31 March 16:00 UTC, 2026. Binance, Bybit and OKX have usable funding and price data for 15 common coins. The past-settled-rate signal reaches at most 10.9289 bps per eight hours, below the original 22?23 bps entry thresholds: zero trades and zero PnL in all three execution-cost scenarios. This result does not reproduce the earlier synthetic four-venue portfolio.
 
 ## Liquidity: Resilience Scores
 
