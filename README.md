@@ -26,6 +26,10 @@ crypto-market-research/
 
 Each topic keeps its inputs and outputs together. File prefixes identify the study when downloading individual files.
 
+## Shared data for subsequent research
+
+Use [September 2026: one common four-venue dataset](datasets/2026-09/README.md) for new cross-venue comparisons. The UTC window is 1 September inclusive through 1 October exclusive. Its versioned manifest fixes the shared universe and data hashes; per-market coverage checks identify accepted inputs. Historical January–March and August studies remain separate samples.
+
 ## Results
 
 [RESULTS.md](RESULTS.md) links the reproducible August funding outputs and the other studies' result workbooks. PNG charts summarize the studies; CSV ledgers and workbooks retain detailed calculations and event records.

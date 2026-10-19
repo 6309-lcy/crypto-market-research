@@ -1,0 +1,64 @@
+{
+  "dataset_id": "crypto-perpetuals-2026-09-v1",
+  "start_inclusive": "2026-09-01T00:00:00+00:00",
+  "end_exclusive": "2026-10-01T00:00:00+00:00",
+  "timezone": "UTC",
+  "venues": [
+    "binance",
+    "bybit",
+    "okx",
+    "hyperliquid"
+  ],
+  "candidate_bases": [
+    "ADA",
+    "ARB",
+    "ATOM",
+    "AVAX",
+    "BNB",
+    "BTC",
+    "DOGE",
+    "DOT",
+    "ETH",
+    "LINK",
+    "LTC",
+    "OP",
+    "SOL",
+    "UNI",
+    "XRP"
+  ],
+  "common_bases": [
+    "ADA",
+    "ARB",
+    "ATOM",
+    "AVAX",
+    "BNB",
+    "BTC",
+    "DOGE",
+    "DOT",
+    "ETH",
+    "LINK",
+    "LTC",
+    "OP",
+    "SOL",
+    "UNI",
+    "XRP"
+  ],
+  "excluded_bases": [],
+  "candle_frequency": "1h",
+  "expected_candles_per_market": 720,
+  "common_market_count": 60,
+  "common_candle_rows": 43200,
+  "common_funding_rows": 14850,
+  "hashes": {
+    "candles.csv": "1942d8639bb4b94d14d3c93c31ad96afafc4bea62484d62995391fe21302e3d1",
+    "funding.csv": "adf7b022ee79c8a088e494f733240d3e91b66c915556f48eabc27e6bdeeba123",
+    "coverage.csv": "95da884753b4ea6c644e7e0b3a3f7a2372c72e9c6eb82d618257c994bd738af3"
+  },
+  "validator_sha256": "36c4a010c6817a16239202fc4c6b19e8031904d9428b698019e8fc4a859ecbb9",
+  "rule": "Use only common_bases at all four venues and only the shared [start,end) window. No forward fill or synthetic rates.",
+  "limitations": [
+    "Settled rates are outcomes. They are not the pre-settlement predictions visible historically.",
+    "Trade candles do not provide executable BBO or historical spread. Mark/oracle data availability differs by venue.",
+    "A stable observed settlement interval validates this sample; future schedule changes require fresh metadata."
+  ]
+}
