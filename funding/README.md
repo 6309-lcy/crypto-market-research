@@ -1,5 +1,7 @@
 # Funding research
 
+[Cost-covering low-turnover study](low_turnover/README.md): fixed72h forecast and transaction-cost hurdle, September15–30 evaluation. Zero qualifying entries in all cost scenarios. [繁體中文](low_turnover/README.zh-TW.md).
+
 The current [September four-venue strategy](september/README.md) runs on the frozen shared one-month dataset. [繁體中文九月說明](september/README.zh-TW.md).
 
 ## Earlier August funding-rate replay

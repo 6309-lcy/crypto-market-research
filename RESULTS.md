@@ -2,6 +2,18 @@
 
 Funding is reproduced from the included August replay inputs and code. The other tables are extracted from their included result workbooks. Each study has its own sample and assumptions.
 
+## Funding: cost-covering low-turnover experiment
+
+[Rules and reproducible results](funding/low_turnover/README.md) use the unchanged September dataset, evaluated from September 15. All scenarios take zero trades and preserve $100,000 capital. The strongest persistent signal forecasts 19.8168 bps over72h, below costs plus buffer:
+
+| Per-fill execution penalty | Trades | Estimated net | Best consistent 72h forecast | Its required costs + buffer | Shortfall |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 1 bps | 0 | $0.00 | 19.8168 bps | 29 bps | 9.1832 bps |
+| 3 bps | 0 | $0.00 | 19.8168 bps | 37 bps | 17.1832 bps |
+| 5 bps | 0 | $0.00 | 19.8168 bps | 45 bps | 25.1832 bps |
+
+September was already observed; this is chronological development evaluation, not a new holdout.
+
 ## Execution: free Bybit/OKX BTC single-day pilot
 
 [Full execution results](execution/btc-2026-09-01/README.md) use September 1 UTC raw books and trades. No cost-filtered taker or maker entries occur. Scheduled maker probes are execution diagnostics, not alpha: the 2 bps maker-fee, 5 s TTL and 100 ms hedge scenario returns −$106.7919 after all modeled fees, with 75 complete pairs and 18 partial unwinds. All scenarios finish with zero unresolved exposure. [Assumptions](execution/btc-2026-09-01/MODEL.md) include 100 ms sampling, queue/latency scenarios and unverified historical OKX contract sizing.

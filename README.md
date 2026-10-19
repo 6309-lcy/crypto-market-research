@@ -37,6 +37,10 @@ The [September strategy replay](funding/september/README.md) now uses this exact
 
 [Bybit/OKX BTC, September 1 UTC](execution/btc-2026-09-01/README.md) adds freely downloaded price-level books and trades. Both markets cover all 1,440 minutes. Raw archives stay local; reproducible collectors, SHA-256 source hashes and validation reports are public. The [execution replay](execution/btc-2026-09-01/MODEL.md) finds no cost-filtered taker/maker entries. A separately scheduled 0.01 BTC maker probe loses an estimated $106.79 in its 2 bps maker-fee, 5 s TTL, 100 ms hedge scenario. The OKX archive lacks sequence/checksum fields, and hypothetical maker queue position remains a modeling assumption.
 
+## Cost-covering low-turnover experiment
+
+The [fixed-rule low-turnover funding study](funding/low_turnover/README.md) uses the same frozen September inputs, with September 15–30 chronological evaluation. All three cost scenarios make **0 trades**: the strongest consistent 72h forecast is **19.8168 bps**, below **29/37/45 bps** cost-plus-buffer requirements. No profitable entry was established.
+
 ## Results
 
 [RESULTS.md](RESULTS.md) links the September shared-data strategy, earlier funding studies, and the other studies' result workbooks. PNG charts summarize the studies; CSV ledgers and workbooks retain detailed calculations and event records.
