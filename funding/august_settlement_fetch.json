@@ -14371,11 +14371,12 @@
   "identity_source": {
     "default": "observations",
     "file": "august_observations.csv",
-    "sha256": "8a943194fcd29e0fd07c2a55038ada02cf35d68ed7b76a95ceb95cbfbd4b12c0",
+    "sha256": "19bc80de2421a18d7bb989628a3fde0c55862f5eea942b1ea7c67f467ba58a86",
     "contracts": 149,
     "roles": "all",
-    "note": "The modified script defaults to included observations for contract identity; an explicit --archive overrides observations. Existing settlements were not fetched again. Original actual fetch provenance, archive hashes, request audits and fetch timestamps are retained.",
+    "note": "The modified script defaults to included observations for contract identity; an explicit --archive overrides observations. Existing settlements were not fetched again. Original actual fetch provenance, archive hashes, request audits and fetch timestamps are retained. Included observations now also retain oracle prices; contract identities remain unchanged.",
     "original_fetch_source": "archive",
-    "original_fetch_script_sha256": "374d726c2c2ac5a1383a0f38330906f8320556c66c244e40226f90a25db72b93"
+    "original_fetch_script_sha256": "374d726c2c2ac5a1383a0f38330906f8320556c66c244e40226f90a25db72b93",
+    "original_observations_sha256": "8a943194fcd29e0fd07c2a55038ada02cf35d68ed7b76a95ceb95cbfbd4b12c0"
   }
 }
