@@ -28,6 +28,14 @@ Hyperliquid 九月 1 日、30 日的 asset contexts 候選檔，以及九月 1 �
 
 官方說明：https://hyperliquid.gitbook.io/hyperliquid-docs/historical-data
 
+## 買賣盤來源的補充發現
+
+Bybit 的 200 檔買賣盤、OKX 的價位級 L2 封存樣本可公開存取；已核對樣本格式，尚未下載整月或驗證更新連續性。BTC 單日壓縮買賣盤約為 Bybit 181 MB、OKX 379 MB，跨幣種整月資料會很大。OKX 成交封存以 UTC+8 分區、買賣盤以 UTC 分區，必須按實際事件時間對齊。
+
+Binance 公開 `bookDepth` 是按價格百分比距離匯總的深度，不能代替價位級 L2；已查詢的九月 BTC `bookTicker` 前綴為空。因此即使補齊 Hyperliquid，四間完整 maker 回測仍有 Binance 歷史價位級簿記的來源缺口。
+
+可行的公開資料路線是先做 **Bybit／OKX、單一幣種、相同數日**的買賣盤加成交重播，驗證序號及連續性，再擴大範圍。完整來源細節見 [英文說明](README.md)。
+
 ## 結論與下一步
 
 目前可以繼續做有明列價格及成本假設的費率研究；資料尚未完整到足以聲稱精確 oracle 損益或 maker 實盤成交。

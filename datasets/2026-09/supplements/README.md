@@ -44,6 +44,19 @@ Asset contexts are the candidate source for historical oracle/mark and contempor
 
 Trade/node archives are separately documented under `hl-mainnet-node-data`. Their schemas, access rules and period coverage need independent checks. An archive path being documented does not prove every September object is present.
 
+## Additional execution-source findings
+
+Read-only source inspection on 19 October 2026 verified accessible Bybit 200-level books and OKX price-level L2 archive samples. These are availability checks, not a full-month download or continuity certification.
+
+- Bybit BTC September 1 book: `https://quote-saver.bycsi.com/orderbook/linear/BTCUSDT/2026-09-01_BTCUSDT_ob200.data.zip` (180,929,446 compressed bytes); boundary-date HEAD checks succeeded for all 15 candidate coins. Public trades are separately available.
+- OKX BTC September 1 book: `https://static.okx.com/cdn/okx/match/orderbook/pro/L2/400lv/daily/20260901/BTC-USDT-SWAP-L2orderbook-400lv-2026-09-01.tar.gz` (378,586,403 compressed bytes). Official daily listings succeeded for the 15 coins. Trade archives use UTC+8 partitions whereas books use UTC; adjacent partitions and strict event-time filtering are required.
+- Binance public `bookDepth` samples contain percentage-distance aggregates (`timestamp,percentage,depth,notional`), not price-level books. The BTC September bookTicker prefix was empty in the public bucket inspection. Public individual trades exist, but a usable public September price-level book source remains unestablished.
+- Hyperliquid anonymous archive requests explicitly require requester-pays authentication. September current-public-API predicted funding is not historical September forecast data.
+
+A practical next execution study is **Bybit–OKX, one coin over matched days**, downloading both full books and trades and validating sequence continuity before expanding. It still requires a declared maker queue/latency model. Full four-venue maker execution remains blocked by the unverified Binance book source and restricted Hyperliquid archives.
+
+Official references: [Bybit historical data](https://www.bybit.com/derivatives/en/history-data), [OKX historical market-data API](https://www.okx.com/docs-v5/en/#public-data-rest-api-get-historical-market-data), [Binance public-data documentation](https://github.com/binance/binance-public-data).
+
 ## Current readiness
 
 The public common dataset supports a carefully labeled **hourly price-proxy, lagged-settlement funding study**. Exact funding-receipt replication, BBO execution claims and maker-fill claims remain unsupported until the identified inputs are acquired and validated. Detailed source access probes are recorded in `source_access.json` when available.
